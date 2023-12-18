@@ -1,0 +1,2688 @@
+Order Tracking
+
+// import 'package:flutter/material.dart';
+// import 'package:order_tracker/order_tracker.dart';
+
+// class MyHomePage extends StatefulWidget {
+//   const MyHomePage({Key? key}) : super(key: key);
+
+//   @override
+//   State<MyHomePage> createState() => _MyHomePageState();
+// }
+
+// class _MyHomePageState extends State<MyHomePage> {
+
+//   ///this TextDto present in a package add data in this dto and set in a list.
+
+//   List<TextDto> city1 = [
+//     TextDto("Your order has been placed", "Fri, 25th Mar '22 - 10:47pm"),
+//     TextDto("Seller ha processed your order", "Sun, 27th Mar '22 - 10:19am"),
+//     TextDto("Your item has been picked up by courier partner.", "Tue, 29th Mar '22 - 5:00pm"),
+//   ];
+
+//   List<TextDto> city2 = [
+//     TextDto("Your order has been shipped", "Tue, 29th Mar '22 - 5:04pm"),
+//     TextDto("Your item has been received in the nearest hub to you.", null),
+//   ];
+
+//   List<TextDto> city3 = [
+//     TextDto("Your order is out for delivery", "Thu, 31th Mar '22 - 2:27pm"),
+//   ];
+
+//   List<TextDto> city4 = [
+//     TextDto("Your order has been delivered", "Thu, 31th Mar '22 - 3:58pm"),
+//   ];
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text("Warehouse Tracing"),
+//       ),
+//       backgroundColor: Colors.lightBlue,
+//       body: Padding(
+//         padding: const EdgeInsets.all(20),
+//         child: OrderTracker(
+//           status: Status.delivered,
+//           activeColor: Colors.black,
+//           inActiveColor: Colors.yellow[700],
+//           orderTitleAndDateList: city1,
+//           shippedTitleAndDateList: city2,
+//           outOfDeliveryTitleAndDateList: city3,
+//           deliveredTitleAndDateList: city4,
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+Profile
+
+// import 'package:flutter/material.dart';
+// import 'package:flutter/services.dart';
+
+
+// class Profile extends StatefulWidget {
+//   const Profile({super.key});
+
+//   @override
+//   State<Profile> createState() => _ProfileState();
+// }
+
+// class _ProfileState extends State<Profile> {
+//   final formkey = GlobalKey<FormState>(); 
+//    @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+      
+//       appBar: AppBar(
+//         title: const Text("Driver"),
+//         centerTitle: true,
+//         backgroundColor:Color(0xFe9dbff),
+//         leading: const Icon(Icons.arrow_back),
+//         // shape: RoundedRectangleBorder(
+//         //         borderRadius: BorderRadius.only(
+//         //             bottomRight: Radius.circular(180),
+//         //             bottomLeft: Radius.circular(180)))
+//       ),
+//       // backgroundColor: Colors.lightBlue.shade100,
+    
+//       body: SingleChildScrollView(
+        
+//         child: Center(
+//           child:Form(
+//             key: formkey,
+//             child: Column(children: [
+              
+//               Container(
+//                 margin: const EdgeInsets.only(left: 150.0,bottom: 00,right: 150,top: 0),
+//                 padding: const EdgeInsets.all(15.0),
+//                 decoration: BoxDecoration(
+//                   border: Border.all(color: Colors.black),
+//                   borderRadius: BorderRadius.circular(8),
+//                   color: Colors.white
+//                 ),
+//                 child: Column(children: [
+
+//                   Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: const TextField(
+//                       decoration: InputDecoration(
+//                         hintText: "Name",
+//                         hintStyle: TextStyle(
+
+//                         ),
+//                         border: OutlineInputBorder()
+                                    
+//                       ),
+//                     ),
+//                   ),
+//                   Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: TextField(decoration: const InputDecoration(
+//                       hintText: "Phone Number",
+//                       border: OutlineInputBorder(),
+//                       suffixIcon: Icon(Icons.add)
+//                     ),
+                    
+//                     keyboardType: TextInputType.number,
+//                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+
+                    
+//                     ),
+//                   ),
+//                   // TextField(
+//                   //    decoration: const InputDecoration(
+//                   //     hintText: "Phone Number 2",
+                
+//                   //   ),
+//                   //   keyboardType: TextInputType.number,
+//                   // inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+//                   // ),
+//                   Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: const TextField(
+//                        decoration: InputDecoration(
+//                         hintText: "Acquistion Date",
+//                         border: OutlineInputBorder()
+                                    
+//                       ),
+//                     ),
+//                   ),
+                  
+//                   Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: TextField(
+//                        decoration: const InputDecoration(
+//                         hintText: "Aadhar Card Number",
+//                         border: OutlineInputBorder()
+                        
+                                    
+//                       ),
+//                       keyboardType: TextInputType.number,
+//                     inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+//                     ),
+//                   ),
+//                   Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: const TextField(
+//                        decoration: InputDecoration(
+//                         hintText: "PAN Card Number",
+//                         border: OutlineInputBorder()
+                                    
+//                       ),
+//                     ),
+//                   ),
+//                   Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: const TextField(
+//                       decoration: InputDecoration(
+//                          border: OutlineInputBorder(),
+//                          hintText: "Vehicle Number"
+//                       ),
+                     
+//                     ),
+//                   ),
+//                   Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: const TextField(
+//                       decoration: InputDecoration(
+//                         hintText: "Vehicle Type",
+//                         border: OutlineInputBorder()
+                                    
+//                       ),
+//                     ),
+//                   ),
+//                   Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: const TextField(
+//                       decoration: InputDecoration(
+//                         hintText: "Chesi Number",
+//                         border: OutlineInputBorder()
+                                    
+//                       ),
+//                     ),
+//                   ),
+//                   Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: const TextField(
+//                       decoration: InputDecoration(
+//                         hintText: "RC Number",
+//                         border: OutlineInputBorder()
+                                    
+//                       ),
+//                     ),
+//                   ),
+//                    Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: const TextField(
+//                       decoration: InputDecoration(
+//                         hintText: "Modal Name",
+//                         border: OutlineInputBorder()
+                                    
+//                       ),
+//                     ),
+//                   ),
+//                   Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: const TextField(
+//                       decoration: InputDecoration(
+//                         hintText: "Expiary Date",
+//                         border: OutlineInputBorder()
+                                    
+//                       ),
+//                     ),
+//                   ),
+//                   Padding(
+//                     padding: const EdgeInsets.all(8.0),
+//                     child: const TextField(
+//                       decoration: InputDecoration(
+//                         hintText: "Modal",
+//                         border: OutlineInputBorder()
+                                    
+//                       ),
+//                     ),
+//                   ),
+                  
+                  
+//                 ]),
+//               ),
+              
+//              Padding(
+//                padding: const EdgeInsets.only(bottom:8.0,top:8.0),
+//                child: SizedBox(
+                
+//                  child: ElevatedButton(onPressed: (){}, child: const Text("Confrim",style: TextStyle(color: Colors.white),),
+//                  style: ElevatedButton.styleFrom(
+//                   backgroundColor: Colors.brown,
+//                   foregroundColor: Colors.white,
+//                   shape: RoundedRectangleBorder(
+//                   borderRadius: BorderRadius.only(
+//                       bottomRight: Radius.circular(0),
+//                       bottomLeft: Radius.circular(0)))
+//                  ),
+//                  ),
+//                ),
+//              )
+//             ]),
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+Wool Tracking
+
+// import 'package:flutter/material.dart';
+// import 'package:woolvoyage/components/tracker.dart';
+
+// class WoolTracker extends StatefulWidget {
+//    const WoolTracker({super.key});
+
+//   @override
+//   State<WoolTracker> createState() => _WoolTrackerState();
+// }
+
+// class _WoolTrackerState extends State<WoolTracker> {
+//   @override
+//   Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title: const Text("WoolTracking"),
+//         centerTitle: true,
+//         backgroundColor:Colors.lightBlue,
+//       ),
+//       body: SizedBox(
+//         child: Padding(
+//           padding:  const EdgeInsets.symmetric(horizontal: 0),
+//           child:ListView(
+//             scrollDirection: Axis.horizontal,
+//             children: const [
+//               MyTimeTile(isFirst: true, isLast: false, isPast: true,city:"Jaipur",),
+//               MyTimeTile(isFirst: false, isLast: false, isPast: true,city:"Bhopal"),
+//               MyTimeTile(isFirst: false, isLast: false, isPast: true,city:"Srinagar"),
+//               MyTimeTile(isFirst: false, isLast: false, isPast: false,city:"Hydreabad"),
+//               MyTimeTile(isFirst:false, isLast: true, isPast: false,city: "Karnataka",)
+//              ]  ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+
+
+Wool DataTable
+
+// Widget _buildSearchResult() {
+    
+   
+//       return SingleChildScrollView(
+//         scrollDirection: Axis.horizontal,
+//         child: DataTable(
+//           columns: const [
+//             DataColumn(label: Text('City')),
+//             DataColumn(label: Text('Werehous')),
+//             DataColumn(label: Text('Arrived at')), // Add additional columns as needed
+//             DataColumn(label: Text('Left at')),
+//           ],
+//           rows: .map((data) {
+//             return DataRow(cells: [
+//               DataCell(Text(data.city)),
+//               DataCell(Text(data.Warehouse_no)),
+//               const DataCell(Text('Price')), // Replace 'Price' with the actual value
+//               const DataCell(Text('Zone')), // Replace 'Zone' with the actual value
+//               DataCell(Text(data.grading)),
+//               DataCell(Text(data.color)),
+//               DataCell(Text(data.breed)),
+//             ]);
+//           }).toList(),
+//         ),
+//       );
+// }
+
+
+// class WoolInfo {
+//   final String city;
+//   final String Warehouse_no;
+//   final String breed;
+//   final String color;
+//   final String grading;
+//   final String fiberFitness;
+
+//   WoolInfo(
+//     this.city,
+//     this.Warehouse_no,
+//     this.breed,
+//     this.color,
+//     this.grading,
+//     this.fiberFitness,);
+// }
+
+
+
+
+wool_tracking
+
+import 'package:flutter/material.dart';
+
+class WoolTracker extends StatefulWidget {
+  const WoolTracker({Key? key}) : super(key: key);
+
+  @override
+  State<WoolTracker> createState() => _WoolTrackerState();
+}
+
+class _WoolTrackerState extends State<WoolTracker> {
+  late int _currentIndex = 1;
+  List<Map<String, String>> data = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Wool Tracking"),
+        centerTitle: true,
+        backgroundColor: Color(0xFFe9dbFF),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                child: Row(
+                  children: [
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Chennai", "Warehouse 1");
+                        _setCurrentIndex(1);
+                      },
+                      index: 1,
+                      currentIndex: _currentIndex,
+                      city: "Chennai",
+                      werehouse: "Warehouse 1",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Bangalore", "Warehouse 2");
+                        _setCurrentIndex(2);
+                      },
+                      index: 2,
+                      currentIndex: _currentIndex,
+                      city: "Banglore",
+                      werehouse: "Warehouse 2",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Mumbai", "Warehouse 3");
+                        _setCurrentIndex(3);
+                      },
+                      index: 3,
+                      currentIndex: _currentIndex,
+                      city: "Mumbai",
+                      werehouse: "Warehouse 3",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Jaipur", "Warehouse 4");
+                        _setCurrentIndex(4);
+                      },
+                      index: 4,
+                      currentIndex: _currentIndex,
+                      city: "Jaipur",
+                      werehouse: "Warehouse 4",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Delhi", "Warehouse 5");
+                        _setCurrentIndex(5);
+                      },
+                      index: 5,
+                      currentIndex: _currentIndex,
+                      city: "Delhi",
+                      werehouse: "Warehouse 5",
+                      isLast: true,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 8, left: 40, right: 40),
+                child: TabelData(data: data),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _updateData(String city, String warehouse) {
+    setState(() {
+      data = [
+        {
+          "id": "ID1",
+          "city": city,
+          "warehouse": warehouse,
+          "arriveTime": "Arrived Time",
+          "departureTime": "Departure Time"
+        }
+      ];
+    });
+  }
+
+  void _setCurrentIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+}
+
+class StepperComponent extends StatelessWidget {
+  final bool isLast;
+  final int currentIndex;
+  final int index;
+  final String city;
+  final String werehouse;
+  final VoidCallback onTap;
+
+  StepperComponent({
+    Key? key,
+    required this.currentIndex,
+    required this.city,
+    required this.onTap,
+    required this.index,
+    required this.werehouse,
+    this.isLast = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return isLast
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: onTap,
+                    child: Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: index == currentIndex
+                            ? Colors.deepPurple
+                            : Colors.transparent,
+                        border: Border.all(
+                            color: index >= currentIndex
+                                ? Colors.deepPurple
+                                : Color(0xFFe9dbFF)),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF)),
+                ],
+              ),
+              Text(
+                city,
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+              Text(werehouse, style: TextStyle(fontSize: 10)),
+            ],
+          )
+        : Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: onTap,
+                      child: Container(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: index <= currentIndex
+                                ? Colors.deepPurple
+                                : Colors.transparent,
+                            border: Border.all(
+                                color: index >= currentIndex
+                                    ? Colors.deepPurple
+                                    : Color(0xFFe9dbFF))),
+                      ),
+                    ),
+                    Expanded(
+                        child: Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF),
+                    ))
+                  ],
+                ),
+                Text(
+                  city,
+                  style: TextStyle(fontSize: 12),
+                ),
+                Text(werehouse, style: TextStyle(fontSize: 10)),
+              ],
+            ),
+          );
+  }
+}
+
+
+import 'package:flutter/material.dart';
+
+class WoolTracker extends StatefulWidget {
+  const WoolTracker({Key? key}) : super(key: key);
+
+  @override
+  State<WoolTracker> createState() => _WoolTrackerState();
+}
+
+class _WoolTrackerState extends State<WoolTracker> {
+  late int _currentIndex = 1;
+  List<Map<String, String>> data = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Wool Tracking"),
+        centerTitle: true,
+        backgroundColor: Color(0xFFe9dbFF),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                child: Row(
+                  children: [
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Chennai", "Warehouse 1");
+                        _setCurrentIndex(1);
+                      },
+                      index: 1,
+                      currentIndex: _currentIndex,
+                      city: "Chennai",
+                      werehouse: "Warehouse 1",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Bangalore", "Warehouse 2");
+                        _setCurrentIndex(2);
+                      },
+                      index: 2,
+                      currentIndex: _currentIndex,
+                      city: "Banglore",
+                      werehouse: "Warehouse 2",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Mumbai", "Warehouse 3");
+                        _setCurrentIndex(3);
+                      },
+                      index: 3,
+                      currentIndex: _currentIndex,
+                      city: "Mumbai",
+                      werehouse: "Warehouse 3",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Jaipur", "Warehouse 4");
+                        _setCurrentIndex(4);
+                      },
+                      index: 4,
+                      currentIndex: _currentIndex,
+                      city: "Jaipur",
+                      werehouse: "Warehouse 4",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Delhi", "Warehouse 5");
+                        _setCurrentIndex(5);
+                      },
+                      index: 5,
+                      currentIndex: _currentIndex,
+                      city: "Delhi",
+                      werehouse: "Warehouse 5",
+                      isLast: true,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 8, left: 40, right: 40),
+                child: TabelData(data: data),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _updateData(String city, String warehouse) {
+    setState(() {
+      data.add({
+        "id": "ID${data.length + 1}",
+        "city": city,
+        "warehouse": warehouse,
+        "arriveTime": "Arrived Time",
+        "departureTime": "Departure Time",
+      });
+    });
+  }
+
+  void _setCurrentIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+}
+
+class StepperComponent extends StatelessWidget {
+  final bool isLast;
+  final int currentIndex;
+  final int index;
+  final String city;
+  final String werehouse;
+  final VoidCallback onTap;
+
+  StepperComponent({
+    Key? key,
+    required this.currentIndex,
+    required this.city,
+    required this.onTap,
+    required this.index,
+    required this.werehouse,
+    this.isLast = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return isLast
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: onTap,
+                    child: Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: index == currentIndex
+                            ? Colors.deepPurple
+                            : Colors.transparent,
+                        border: Border.all(
+                            color: index >= currentIndex
+                                ? Colors.deepPurple
+                                : Color(0xFFe9dbFF)),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF)),
+                ],
+              ),
+              Text(
+                city,
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+              Text(werehouse, style: TextStyle(fontSize: 10)),
+            ],
+          )
+        : Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: onTap,
+                      child: Container(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: index <= currentIndex
+                                ? Colors.deepPurple
+                                : Colors.transparent,
+                            border: Border.all(
+                                color: index >= currentIndex
+                                    ? Colors.deepPurple
+                                    : Color(0xFFe9dbFF))),
+                      ),
+                    ),
+                    Expanded(
+                        child: Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF),
+                    ))
+                  ],
+                ),
+                Text(
+                  city,
+                  style: TextStyle(fontSize: 12),
+                ),
+                Text(werehouse, style: TextStyle(fontSize: 10)),
+              ],
+            ),
+          );
+  }
+}
+
+class TabelData extends StatelessWidget {
+  final List<Map<String, String>> data;
+
+  TabelData({Key? key, required this.data}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DataTable(
+      columns: const [
+        DataColumn(label: Text("Wool ID")),
+        DataColumn(label: Text("City")),
+        DataColumn(label: Text("WareHouse")),
+        DataColumn(label: Text("Arrive Time")),
+        DataColumn(label: Text("Departure Time")),
+      ],
+      rows: List<DataRow>.generate(
+        data.length,
+        (index) => DataRow(
+          cells: [
+            DataCell(Text(data[index]["id"] ?? "")),
+            DataCell(Text(data[index]["city"] ?? "")),
+            DataCell(Text(data[index]["warehouse"] ?? "")),
+            DataCell(Text(data[index]["arriveTime"] ?? "")),
+            DataCell(Text(data[index]["departureTime"] ?? "")),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+time
+
+import 'package:flutter/material.dart';
+
+class WoolTracker extends StatefulWidget {
+  const WoolTracker({Key? key}) : super(key: key);
+
+  @override
+  State<WoolTracker> createState() => _WoolTrackerState();
+}
+
+class _WoolTrackerState extends State<WoolTracker> {
+  late int _currentIndex = 1;
+  List<Map<String, String>> data = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Wool Tracking"),
+        centerTitle: true,
+        backgroundColor: Color(0xFFe9dbFF),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                child: Row(
+                  children: [
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Chennai", "Warehouse 1");
+                        _setCurrentIndex(1);
+                      },
+                      index: 1,
+                      currentIndex: _currentIndex,
+                      city: "Chennai",
+                      werehouse: "Warehouse 1",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Bangalore", "Warehouse 2");
+                        _setCurrentIndex(2);
+                      },
+                      index: 2,
+                      currentIndex: _currentIndex,
+                      city: "Banglore",
+                      werehouse: "Warehouse 2",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Mumbai", "Warehouse 3");
+                        _setCurrentIndex(3);
+                      },
+                      index: 3,
+                      currentIndex: _currentIndex,
+                      city: "Mumbai",
+                      werehouse: "Warehouse 3",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Jaipur", "Warehouse 4");
+                        _setCurrentIndex(4);
+                      },
+                      index: 4,
+                      currentIndex: _currentIndex,
+                      city: "Jaipur",
+                      werehouse: "Warehouse 4",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Delhi", "Warehouse 5");
+                        _setCurrentIndex(5);
+                      },
+                      index: 5,
+                      currentIndex: _currentIndex,
+                      city: "Delhi",
+                      werehouse: "Warehouse 5",
+                      isLast: true,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 8, left: 40, right: 40),
+                child: TabelData(data: data),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _updateData(String city, String warehouse) {
+    setState(() {
+      String currentTime = _getCurrentTime();
+      data.add({
+        "id": "ID${data.length + 1}",
+        "city": city,
+        "warehouse": warehouse,
+        "arriveTime": currentTime,
+        "departureTime": currentTime,
+      });
+    });
+  }
+
+  void _setCurrentIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  String _getCurrentTime() {
+    final now = DateTime.now();
+    return "${now.hour}:${now.minute}:${now.second}";
+  }
+}
+
+class StepperComponent extends StatelessWidget {
+  final bool isLast;
+  final int currentIndex;
+  final int index;
+  final String city;
+  final String werehouse;
+  final VoidCallback onTap;
+
+  StepperComponent({
+    Key? key,
+    required this.currentIndex,
+    required this.city,
+    required this.onTap,
+    required this.index,
+    required this.werehouse,
+    this.isLast = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return isLast
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: onTap,
+                    child: Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: index == currentIndex
+                            ? Colors.deepPurple
+                            : Colors.transparent,
+                        border: Border.all(
+                            color: index >= currentIndex
+                                ? Colors.deepPurple
+                                : Color(0xFFe9dbFF)),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF)),
+                ],
+              ),
+              Text(
+                city,
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+              Text(werehouse, style: TextStyle(fontSize: 10)),
+            ],
+          )
+        : Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: onTap,
+                      child: Container(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: index <= currentIndex
+                                ? Colors.deepPurple
+                                : Colors.transparent,
+                            border: Border.all(
+                                color: index >= currentIndex
+                                    ? Colors.deepPurple
+                                    : Color(0xFFe9dbFF))),
+                      ),
+                    ),
+                    Expanded(
+                        child: Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF),
+                    ))
+                  ],
+                ),
+                Text(
+                  city,
+                  style: TextStyle(fontSize: 12),
+                ),
+                Text(werehouse, style: TextStyle(fontSize: 10)),
+              ],
+            ),
+          );
+  }
+}
+
+class TabelData extends StatelessWidget {
+  final List<Map<String, String>> data;
+
+  TabelData({Key? key, required this.data}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DataTable(
+      columns: const [
+        DataColumn(label: Text("Wool ID")),
+        DataColumn(label: Text("City")),
+        DataColumn(label: Text("WareHouse")),
+        DataColumn(label: Text("Arrive Time")),
+        DataColumn(label: Text("Departure Time")),
+      ],
+      rows: List<DataRow>.generate(
+        data.length,
+        (index) => DataRow(
+          cells: [
+            DataCell(Text(data[index]["id"] ?? "")),
+            DataCell(Text(data[index]["city"] ?? "")),
+            DataCell(Text(data[index]["warehouse"] ?? "")),
+            DataCell(Text(data[index]["arriveTime"] ?? "")),
+            DataCell(Text(data[index]["departureTime"] ?? "")),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+import 'package:flutter/material.dart';
+
+class WoolTracker extends StatefulWidget {
+  const WoolTracker({Key? key}) : super(key: key);
+
+  @override
+  State<WoolTracker> createState() => _WoolTrackerState();
+}
+
+class _WoolTrackerState extends State<WoolTracker> {
+  late int _currentIndex = 1;
+  List<Map<String, String>> data = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Wool Tracking"),
+        centerTitle: true,
+        backgroundColor: Color(0xFFe9dbFF),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                child: Row(
+                  children: [
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Chennai", "Warehouse 1");
+                        _setCurrentIndex(1);
+                      },
+                      index: 1,
+                      currentIndex: _currentIndex,
+                      city: "Chennai",
+                      werehouse: "Warehouse 1",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Bangalore", "Warehouse 2");
+                        _setCurrentIndex(2);
+                      },
+                      index: 2,
+                      currentIndex: _currentIndex,
+                      city: "Banglore",
+                      werehouse: "Warehouse 2",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Mumbai", "Warehouse 3");
+                        _setCurrentIndex(3);
+                      },
+                      index: 3,
+                      currentIndex: _currentIndex,
+                      city: "Mumbai",
+                      werehouse: "Warehouse 3",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Jaipur", "Warehouse 4");
+                        _setCurrentIndex(4);
+                      },
+                      index: 4,
+                      currentIndex: _currentIndex,
+                      city: "Jaipur",
+                      werehouse: "Warehouse 4",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Delhi", "Warehouse 5");
+                        _setCurrentIndex(5);
+                      },
+                      index: 5,
+                      currentIndex: _currentIndex,
+                      city: "Delhi",
+                      werehouse: "Warehouse 5",
+                      isLast: true,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 8, left: 40, right: 40),
+                child: TabelData(data: data),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _updateData(String city, String warehouse) {
+    final Map<String, String> newData = {
+      "id": "ID${data.length + 1}",
+      "city": city,
+      "warehouse": warehouse,
+    };
+
+    // If data already exists, update the departureTime, else set arriveTime
+    if (data.isNotEmpty && data.last.containsKey("arriveTime")) {
+      newData["departureTime"] = _getCurrentTime();
+    } else {
+      newData["arriveTime"] = _getCurrentTime();
+    }
+
+    setState(() {
+      data.add(newData);
+    });
+  }
+
+  void _setCurrentIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  String _getCurrentTime() {
+    final now = DateTime.now();
+    return "${now.hour}:${now.minute}:${now.second}";
+  }
+}
+
+class StepperComponent extends StatelessWidget {
+  final bool isLast;
+  final int currentIndex;
+  final int index;
+  final String city;
+  final String werehouse;
+  final VoidCallback onTap;
+
+  StepperComponent({
+    Key? key,
+    required this.currentIndex,
+    required this.city,
+    required this.onTap,
+    required this.index,
+    required this.werehouse,
+    this.isLast = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return isLast
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: onTap,
+                    child: Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: index == currentIndex
+                            ? Colors.deepPurple
+                            : Colors.transparent,
+                        border: Border.all(
+                            color: index >= currentIndex
+                                ? Colors.deepPurple
+                                : Color(0xFFe9dbFF)),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF)),
+                ],
+              ),
+              Text(
+                city,
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+              Text(werehouse, style: TextStyle(fontSize: 10)),
+            ],
+          )
+        : Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: onTap,
+                      child: Container(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: index <= currentIndex
+                                ? Colors.deepPurple
+                                : Colors.transparent,
+                            border: Border.all(
+                                color: index >= currentIndex
+                                    ? Colors.deepPurple
+                                    : Color(0xFFe9dbFF))),
+                      ),
+                    ),
+                    Expanded(
+                        child: Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF),
+                    ))
+                  ],
+                ),
+                Text(
+                  city,
+                  style: TextStyle(fontSize: 12),
+                ),
+                Text(werehouse, style: TextStyle(fontSize: 10)),
+              ],
+            ),
+          );
+  }
+}
+
+class TabelData extends StatelessWidget {
+  final List<Map<String, String>> data;
+
+  TabelData({Key? key, required this.data}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DataTable(
+      columns: const [
+        DataColumn(label: Text("Wool ID")),
+        DataColumn(label: Text("City")),
+        DataColumn(label: Text("WareHouse")),
+        DataColumn(label: Text("Arrive Time")),
+        DataColumn(label: Text("Departure Time")),
+      ],
+      rows: List<DataRow>.generate(
+        data.length,
+        (index) => DataRow(
+          cells: [
+            DataCell(Text(data[index]["id"] ?? "")),
+            DataCell(Text(data[index]["city"] ?? "")),
+            DataCell(Text(data[index]["warehouse"] ?? "")),
+            DataCell(Text(data[index]["arriveTime"] ?? "")),
+            DataCell(Text(data[index]["departureTime"] ?? "")),
+          ],
+        ),
+      ),
+    );
+  }
+
+
+}
+
+
+
+
+
+time2 1
+
+import 'package:flutter/material.dart';
+
+class WoolTracker extends StatefulWidget {
+  const WoolTracker({Key? key}) : super(key: key);
+
+  @override
+  State<WoolTracker> createState() => _WoolTrackerState();
+}
+
+class _WoolTrackerState extends State<WoolTracker> {
+  late int _currentIndex = 1;
+  List<Map<String, String>> data = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Wool Tracking"),
+        centerTitle: true,
+        backgroundColor: Color(0xFFe9dbFF),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                child: Row(
+                  children: [
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Chennai", "Warehouse 1");
+                        _setCurrentIndex(1);
+                      },
+                      index: 1,
+                      currentIndex: _currentIndex,
+                      city: "Chennai",
+                      werehouse: "Warehouse 1",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Bangalore", "Warehouse 2");
+                        _setCurrentIndex(2);
+                      },
+                      index: 2,
+                      currentIndex: _currentIndex,
+                      city: "Banglore",
+                      werehouse: "Warehouse 2",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Mumbai", "Warehouse 3");
+                        _setCurrentIndex(3);
+                      },
+                      index: 3,
+                      currentIndex: _currentIndex,
+                      city: "Mumbai",
+                      werehouse: "Warehouse 3",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Jaipur", "Warehouse 4");
+                        _setCurrentIndex(4);
+                      },
+                      index: 4,
+                      currentIndex: _currentIndex,
+                      city: "Jaipur",
+                      werehouse: "Warehouse 4",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Delhi", "Warehouse 5");
+                        _setCurrentIndex(5);
+                      },
+                      index: 5,
+                      currentIndex: _currentIndex,
+                      city: "Delhi",
+                      werehouse: "Warehouse 5",
+                      isLast: true,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 8, left: 40, right: 40),
+                child: TabelData(data: data),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _updateData(String city, String warehouse) {
+    if (data.isNotEmpty && data.last.containsKey("arriveTime")) {
+      // Update departureTime
+      data.last["departureTime"] = _getCurrentTime();
+      _setCurrentIndex(_currentIndex + 1); // Move to the next index
+    } else {
+      // Add arriveTime
+      data.add({
+        "id": "ID${data.length + 1}",
+        "city": city,
+        "warehouse": warehouse,
+        "arriveTime": _getCurrentTime(),
+      });
+    }
+
+    setState(() {});
+  }
+
+  void _setCurrentIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  String _getCurrentTime() {
+    final now = DateTime.now();
+    return "${now.hour}:${now.minute}:${now.second}";
+  }
+}
+
+class StepperComponent extends StatelessWidget {
+  final bool isLast;
+  final int currentIndex;
+  final int index;
+  final String city;
+  final String werehouse;
+  final VoidCallback onTap;
+
+  StepperComponent({
+    Key? key,
+    required this.currentIndex,
+    required this.city,
+    required this.onTap,
+    required this.index,
+    required this.werehouse,
+    this.isLast = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return isLast
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: onTap,
+                    child: Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: index == currentIndex
+                            ? Colors.deepPurple
+                            : Colors.transparent,
+                        border: Border.all(
+                            color: index >= currentIndex
+                                ? Colors.deepPurple
+                                : Color(0xFFe9dbFF)),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF)),
+                ],
+              ),
+              Text(
+                city,
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+              Text(werehouse, style: TextStyle(fontSize: 10)),
+            ],
+          )
+        : Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: onTap,
+                      child: Container(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: index <= currentIndex
+                                ? Colors.deepPurple
+                                : Colors.transparent,
+                            border: Border.all(
+                                color: index >= currentIndex
+                                    ? Colors.deepPurple
+                                    : Color(0xFFe9dbFF))),
+                      ),
+                    ),
+                    Expanded(
+                        child: Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF),
+                    ))
+                  ],
+                ),
+                Text(
+                  city,
+                  style: TextStyle(fontSize: 12),
+                ),
+                Text(werehouse, style: TextStyle(fontSize: 10)),
+              ],
+            ),
+          );
+  }
+}
+
+class TabelData extends StatelessWidget {
+  final List<Map<String, String>> data;
+
+  TabelData({Key? key, required this.data}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DataTable(
+      columns: const [
+        DataColumn(label: Text("Wool ID")),
+        DataColumn(label: Text("City")),
+        DataColumn(label: Text("WareHouse")),
+        DataColumn(label: Text("Arrive Time")),
+        DataColumn(label: Text("Departure Time")),
+      ],
+      rows: List<DataRow>.generate(
+        data.length,
+        (index) => DataRow(
+          cells: [
+            DataCell(Text(data[index]["id"] ?? "")),
+            DataCell(Text(data[index]["city"] ?? "")),
+            DataCell(Text(data[index]["warehouse"] ?? "")),
+            DataCell(Text(data[index]["arriveTime"] ?? "")),
+            DataCell(Text(data[index]["departureTime"] ?? "")),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+import 'package:flutter/material.dart';
+
+class WoolTracker extends StatefulWidget {
+  const WoolTracker({Key? key}) : super(key: key);
+
+  @override
+  State<WoolTracker> createState() => _WoolTrackerState();
+}
+
+class _WoolTrackerState extends State<WoolTracker> {
+  late int _currentIndex = 1;
+  List<Map<String, String>> data = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Wool Tracking"),
+        centerTitle: true,
+        backgroundColor: Color(0xFFe9dbFF),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                child: Row(
+                  children: [
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Chennai", "Warehouse 1");
+                        _setCurrentIndex(1);
+                      },
+                      index: 1,
+                      currentIndex: _currentIndex,
+                      city: "Chennai",
+                      werehouse: "Warehouse 1",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Bangalore", "Warehouse 2");
+                        _setCurrentIndex(2);
+                      },
+                      index: 2,
+                      currentIndex: _currentIndex,
+                      city: "Banglore",
+                      werehouse: "Warehouse 2",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Mumbai", "Warehouse 3");
+                        _setCurrentIndex(3);
+                      },
+                      index: 3,
+                      currentIndex: _currentIndex,
+                      city: "Mumbai",
+                      werehouse: "Warehouse 3",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Jaipur", "Warehouse 4");
+                        _setCurrentIndex(4);
+                      },
+                      index: 4,
+                      currentIndex: _currentIndex,
+                      city: "Jaipur",
+                      werehouse: "Warehouse 4",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Delhi", "Warehouse 5");
+                        _setCurrentIndex(5);
+                      },
+                      index: 5,
+                      currentIndex: _currentIndex,
+                      city: "Delhi",
+                      werehouse: "Warehouse 5",
+                      isLast: true,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 8, left: 40, right: 40),
+                child: TabelData(data: data, onUpdate: _updateTime),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _updateData(String city, String warehouse) {
+    setState(() {
+      data.add({
+        "id": "ID${data.length + 1}",
+        "city": city,
+        "warehouse": warehouse,
+        "arriveTime": "",
+        "departureTime": "",
+        "isArriveTime": true,
+      });
+    });
+  }
+
+  void _setCurrentIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  void _updateTime(int index, bool isArriveTime) {
+    setState(() {
+      if (isArriveTime) {
+        data[index]["arriveTime"] = _getCurrentTime();
+      } else {
+        data[index]["departureTime"] = _getCurrentTime();
+      }
+      data[index]["isArriveTime"] = !isArriveTime;
+    });
+  }
+
+  String _getCurrentTime() {
+    final now = DateTime.now();
+    return "${now.hour}:${now.minute}:${now.second}";
+  }
+}
+
+class StepperComponent extends StatelessWidget {
+  final bool isLast;
+  final int currentIndex;
+  final int index;
+  final String city;
+  final String werehouse;
+  final VoidCallback onTap;
+
+  StepperComponent({
+    Key? key,
+    required this.currentIndex,
+    required this.city,
+    required this.onTap,
+    required this.index,
+    required this.werehouse,
+    this.isLast = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return isLast
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: onTap,
+                    child: Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: index == currentIndex
+                            ? Colors.deepPurple
+                            : Colors.transparent,
+                        border: Border.all(
+                            color: index >= currentIndex
+                                ? Colors.deepPurple
+                                : Color(0xFFe9dbFF)),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF)),
+                ],
+              ),
+              Text(
+                city,
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+              Text(werehouse, style: TextStyle(fontSize: 10)),
+            ],
+          )
+        : Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: onTap,
+                      child: Container(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: index <= currentIndex
+                                ? Colors.deepPurple
+                                : Colors.transparent,
+                            border: Border.all(
+                                color: index >= currentIndex
+                                    ? Colors.deepPurple
+                                    : Color(0xFFe9dbFF))),
+                      ),
+                    ),
+                    Expanded(
+                        child: Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF),
+                    ))
+                  ],
+                ),
+                Text(
+                  city,
+                  style: TextStyle(fontSize: 12),
+                ),
+                Text(werehouse, style: TextStyle(fontSize: 10)),
+              ],
+            ),
+          );
+  }
+}
+
+class TabelData extends StatelessWidget {
+  final List<Map<String, String>> data;
+  final Function(int index, bool isArriveTime) onUpdate;
+
+  TabelData({Key? key, required this.data, required this.onUpdate})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DataTable(
+      columns: const [
+        DataColumn(label: Text("Wool ID")),
+        DataColumn(label: Text("City")),
+        DataColumn(label: Text("WareHouse")),
+        DataColumn(label: Text("Arrive Time")),
+        DataColumn(label: Text("Departure Time")),
+      ],
+      rows: List<DataRow>.generate(
+        data.length,
+        (index) => DataRow(
+          cells: [
+            DataCell(Text(data[index]["id"] ?? "")),
+            DataCell(Text(data[index]["city"] ?? "")),
+            DataCell(Text(data[index]["warehouse"] ?? "")),
+            DataCell(
+              GestureDetector(
+                onTap: () {
+                  onUpdate(index, data[index]["isArriveTime"] == "true");
+                },
+                child: Text(
+                  data[index]["arriveTime"] ?? "",
+                  style: TextStyle(
+                    color: data[index]["isArriveTime"] == "true"
+                        ? Colors.blue
+                        : Colors.black,
+                  ),
+                ),
+              ),
+            ),
+            DataCell(
+              GestureDetector(
+                onTap: () {
+                  onUpdate(index, data[index]["isArriveTime"] != "true");
+                },
+                child: Text(
+                  data[index]["departureTime"] ?? "",
+                  style: TextStyle(
+                    color: data[index]["isArriveTime"] != "true"
+                        ? Colors.blue
+                        : Colors.black,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+// import 'package:flutter/material.dart';
+//import 'package:woolvoyage/Tabel.dart';
+
+
+// late final String city;
+// late final String WareHouse;
+
+// class WoolTracker extends StatefulWidget {
+//   const WoolTracker({super.key});
+
+//   @override
+//   State<WoolTracker> createState() => _WoolTrackerState();
+// }
+
+// class _WoolTrackerState extends State<WoolTracker> {
+//    late int _currentIndex = 1;
+//   // PageController _pageController=PageController();
+//   @override
+
+//   // void dispose() {
+//   //   _pageController.dispose();
+//   //   super.dispose();
+//   // }
+//    Widget build(BuildContext context) {
+//     return Scaffold(
+//       appBar: AppBar(
+//         title:Text("Wool Tracking"),
+//         centerTitle: true,
+//         backgroundColor: Color(0xFFe9dbFF),
+//       ),
+
+//       body: SingleChildScrollView(
+//         child: Container(
+//           width: MediaQuery.of(context).size.width,
+//           child: Column(
+//             crossAxisAlignment: CrossAxisAlignment.stretch,
+//             children: [
+//               SizedBox(height:10),
+//               Container(
+//                 padding: EdgeInsets.symmetric(horizontal: 10,),
+//                 margin: EdgeInsets.only(left: 20,right: 20,top: 20),
+//                 child: Row(
+//                   children: [
+//                     StepperComponent(
+//                       onTap: () {
+//                       setState(() {
+//                         _currentIndex=1;
+//                       });
+                      
+//                       // _pageController.jumpToPage(1);
+//                     },
+//                     index: 1,
+//                       currentIndex: _currentIndex,
+//                     city: "Chennai",
+//                     werehouse: "Warehouse 1",
+//                     ),
+//                      StepperComponent(
+//                       onTap: () {
+//                       setState(() {
+//                         _currentIndex=2;
+//                       });
+//                       // _pageController.jumpToPage(1);
+//                     },
+//                     index: 2,
+//                       currentIndex: _currentIndex,
+//                     city: "Banglore",
+//                     werehouse: "Warehouse 2",
+//                     ),
+//                      StepperComponent(
+//                       onTap: () {
+//                       setState(() {
+//                         _currentIndex=3;
+//                       });
+//                       // _pageController.jumpToPage(1);
+//                     },
+//                     index: 3,
+//                       currentIndex: _currentIndex,
+//                     city: "Mumbai",
+//                     werehouse: "Warehouse 3",
+//                     ),
+//                      StepperComponent(
+//                        onTap: () {
+//                       setState(() {
+//                         _currentIndex=4;
+//                       });
+//                       // _pageController.jumpToPage(2);
+//                       },
+//                       index: 4,
+//                       currentIndex: _currentIndex,
+//                     city: "Jaipur",
+//                     werehouse: "Warehouse 4",
+//                    ),
+//                      StepperComponent(
+//                       onTap: () {
+//                       setState(() {
+//                         _currentIndex=5;
+
+//                       });
+//                       // _pageController.jumpToPage(3);
+//                     },
+//                     index: 5,
+//                       currentIndex: _currentIndex,
+//                     city: "Delhi",
+//                     werehouse: "Warehouse 5",
+//                     isLast:true,
+//                     )
+//                   ],
+                  
+//                 ),
+//               ),
+//               Container(
+//                 margin: EdgeInsets.only(top: 8,left:40,right: 40),
+//                 child: TabelData(
+//           data: [
+//             {"id": "ID1", "city": "Chennai", "warehouse": "WareHouse 1", "arriveTime": "Arrived Time", "departureTime": "Departure Time"},
+//             {"id": "ID2", "city": "Bangalore", "warehouse": "WareHouse 2", "arriveTime": "Arrive Time", "departureTime": "Departure Time"},
+//             {"id": "ID3", "city": "Mumbai", "warehouse": "WareHouse 3", "arriveTime": "Arrived Time", "departureTime": "Departure Time"},
+//             {"id": "ID4", "city": "Jaipur", "warehouse": "WareHouse 4", "arriveTime": "Arrived Time", "departureTime": "Departure Time"},
+//             {"id": "ID5", "city": "Delhi", "warehouse": "WareHouse 5", "arriveTime": "Arrived Time", "departureTime": "Departure Time"},
+//           ],
+//         ),
+
+//                 )
+
+             
+//               ],
+//           ),
+//         ),
+//       ),
+//     );
+//   }
+// }
+
+// // class Tabel extends StatelessWidget {
+// //   const Tabel({
+// //     super.key,
+// //   });
+
+// //   @override
+// //   Widget build(BuildContext context) {
+// //     return DataTable(columns:const [
+// //       DataColumn(label:Text('City')),
+// //        DataColumn(label:Text('Ware House')),
+// //         DataColumn(label:Text('Arrived Time')),
+// //          DataColumn(label:Text('Departure Time')),
+// //     ] , rows: const [
+// //       DataRow(cells: [DataCell(Text("City")),
+// //       DataCell(Text("Warehouse")),
+// //       DataCell(Text("Arrive Time")),
+// //       DataCell(Text("Departure Time"))
+// //       ],)
+// //     ]);
+// //   }
+// // }
+
+// class StepperComponent extends StatelessWidget {
+//  bool isLast ;
+//   int currentIndex;
+//   int index;
+//   String city;
+//   String werehouse;
+//   VoidCallback onTap;
+//  StepperComponent({
+//     super.key,
+//     required this.currentIndex,
+//     required this.city,
+//      required this.onTap,
+//      required this.index,
+//      required this.werehouse,
+//      this.isLast=false,
+//     });
+
+  
+
+//   @override
+//   Widget build(BuildContext context) {
+
+//     return isLast?
+//      Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           Row(
+//             children: [
+//             //this is the bubble
+//             GestureDetector(
+//               onTap: onTap,
+//               child: Container(
+//                 width: 30,
+//                 height: 30,
+//                 decoration: BoxDecoration(
+//                   borderRadius: BorderRadius.circular(100),
+//                   color: index==currentIndex?Colors.deepPurple:Colors.transparent,
+//                   border: Border.all(color: index>=currentIndex?Colors.deepPurple:Color(0xFFe9dbFF)),
+//                 ),
+//               ),
+//             ),
+//             //this the line
+//             Container(
+//               height: 2,
+//               //why index+1 we want to turn the ligne orange that precede the active bubble
+//               color:currentIndex>=index+1?Colors.deepPurple:Color(0xFFe9dbFF)
+//             ),
+//           ],
+//           ),
+//        Text(city ,style: TextStyle(fontSize: 12,),
+//        ),
+//         Text(werehouse ,style: TextStyle(fontSize: 10)),
+       
+//         ],
+//       ):
+//     Expanded(
+//       child: Column(
+//         crossAxisAlignment: CrossAxisAlignment.start,
+//         children: [
+//           Row(
+//             children: [
+//               GestureDetector(
+//                 onTap: onTap,
+//                 child: Container(
+//                   width: 30,
+//                   height: 30,
+//                   decoration: BoxDecoration(borderRadius: BorderRadius.circular(100),
+//                   color: index<=currentIndex?Colors.deepPurple:Colors.transparent,
+//                   border: Border.all(color:index>=currentIndex?Colors.deepPurple:Color(0xFFe9dbFF),)),                
+//                 ),
+//               ),
+//               Expanded(child: Container(
+//                 height: 2,
+//                 color: currentIndex>=index+1?Colors.deepPurple:Color(0xFFe9dbFF),
+//                ))
+//             ],
+//           ),
+//        Text(city ,style: TextStyle(fontSize: 12,)),
+//        Text(werehouse ,style: TextStyle(fontSize: 10),)
+       
+//         ],
+//       ),
+    
+//     );
+//   }
+// }
+
+
+import 'package:flutter/material.dart';
+
+class WoolTracker extends StatefulWidget {
+  const WoolTracker({Key? key}) : super(key: key);
+
+  @override
+  State<WoolTracker> createState() => _WoolTrackerState();
+}
+
+class _WoolTrackerState extends State<WoolTracker> {
+  late int _currentIndex = 1;
+  List<Map<String, String>> data = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Wool Tracking"),
+        centerTitle: true,
+        backgroundColor: Color(0xFFe9dbFF),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                child: Row(
+                  children: [
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Chennai", "Warehouse 1");
+                        _setCurrentIndex(1);
+                      },
+                      index: 1,
+                      currentIndex: _currentIndex,
+                      city: "Chennai",
+                      werehouse: "Warehouse 1",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Bangalore", "Warehouse 2");
+                        _setCurrentIndex(2);
+                      },
+                      index: 2,
+                      currentIndex: _currentIndex,
+                      city: "Banglore",
+                      werehouse: "Warehouse 2",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Mumbai", "Warehouse 3");
+                        _setCurrentIndex(3);
+                      },
+                      index: 3,
+                      currentIndex: _currentIndex,
+                      city: "Mumbai",
+                      werehouse: "Warehouse 3",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Jaipur", "Warehouse 4");
+                        _setCurrentIndex(4);
+                      },
+                      index: 4,
+                      currentIndex: _currentIndex,
+                      city: "Jaipur",
+                      werehouse: "Warehouse 4",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Delhi", "Warehouse 5");
+                        _setCurrentIndex(5);
+                      },
+                      index: 5,
+                      currentIndex: _currentIndex,
+                      city: "Delhi",
+                      werehouse: "Warehouse 5",
+                      isLast: true,
+                    )
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 8, left: 40, right: 40),
+                child: TabelData(data: data),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _updateData(String city, String warehouse) {
+    final Map<String, String> newData = {
+      "id": "ID${data.length + 1}",
+      "city": city,
+      "warehouse": warehouse,
+    };
+
+    // If data already exists, update the departureTime, else set arriveTime
+    if (data.isNotEmpty && data.last.containsKey("arriveTime")) {
+      newData["departureTime"] = _getCurrentTime();
+    } else {
+      newData["arriveTime"] = _getCurrentTime();
+    }
+
+    setState(() {
+      data.add(newData);
+    });
+  }
+
+  void _setCurrentIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  String _getCurrentTime() {
+    final now = DateTime.now();
+    return "${now.hour}:${now.minute}:${now.second}";
+  }
+}
+
+class StepperComponent extends StatelessWidget {
+  final bool isLast;
+  final int currentIndex;
+  final int index;
+  final String city;
+  final String werehouse;
+  final VoidCallback onTap;
+
+  StepperComponent({
+    Key? key,
+    required this.currentIndex,
+    required this.city,
+    required this.onTap,
+    required this.index,
+    required this.werehouse,
+    this.isLast = false,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return isLast
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  GestureDetector(
+                    onTap: onTap,
+                    child: Container(
+                      width: 30,
+                      height: 30,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(100),
+                        color: index == currentIndex
+                            ? Colors.deepPurple
+                            : Colors.transparent,
+                        border: Border.all(
+                            color: index >= currentIndex
+                                ? Colors.deepPurple
+                                : Color(0xFFe9dbFF)),
+                      ),
+                    ),
+                  ),
+                  Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF)),
+                ],
+              ),
+              Text(
+                city,
+                style: TextStyle(
+                  fontSize: 12,
+                ),
+              ),
+              Text(werehouse, style: TextStyle(fontSize: 10)),
+            ],
+          )
+        : Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Row(
+                  children: [
+                    GestureDetector(
+                      onTap: onTap,
+                      child: Container(
+                        width: 30,
+                        height: 30,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(100),
+                            color: index <= currentIndex
+                                ? Colors.deepPurple
+                                : Colors.transparent,
+                            border: Border.all(
+                                color: index >= currentIndex
+                                    ? Colors.deepPurple
+                                    : Color(0xFFe9dbFF))),
+                      ),
+                    ),
+                    Expanded(
+                        child: Container(
+                      height: 2,
+                      color: currentIndex >= index + 1
+                          ? Colors.deepPurple
+                          : Color(0xFFe9dbFF),
+                    ))
+                  ],
+                ),
+                Text(
+                  city,
+                  style: TextStyle(fontSize: 12),
+                ),
+                Text(werehouse, style: TextStyle(fontSize: 10)),
+              ],
+            ),
+          );
+  }
+}
+
+class TabelData extends StatelessWidget {
+  final List<Map<String, String>> data;
+
+  TabelData({Key? key, required this.data}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DataTable(
+      columns: const [
+        DataColumn(label: Text("Wool ID")),
+        DataColumn(label: Text("City")),
+        DataColumn(label: Text("WareHouse")),
+        DataColumn(label: Text("Arrive Time")),
+        DataColumn(label: Text("Departure Time")),
+      ],
+      rows: List<DataRow>.generate(
+        data.length,
+        (index) => DataRow(
+          cells: [
+            DataCell(Text(data[index]["id"] ?? "")),
+            DataCell(Text(data[index]["city"] ?? "")),
+            DataCell(Text(data[index]["warehouse"] ?? "")),
+            DataCell(Text(data[index]["arriveTime"] ?? "")),
+            DataCell(Text(data[index]["departureTime"] ?? "")),
+          ],
+        ),
+      ),
+    );
+  }
+
+
+}
+
+
+
+
+import 'package:flutter/material.dart';
+
+class WoolTracker extends StatefulWidget {
+  const WoolTracker({Key? key}) : super(key: key);
+
+  @override
+  State<WoolTracker> createState() => _WoolTrackerState();
+}
+
+class _WoolTrackerState extends State<WoolTracker> {
+  late int _currentIndex = 1;
+  List<Map<String, String>> data = [];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Wool Tracking"),
+        centerTitle: true,
+        backgroundColor: Color(0xFFe9dbFF),
+      ),
+      body: SingleChildScrollView(
+        child: Container(
+          width: MediaQuery.of(context).size.width,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              SizedBox(height: 10),
+              Container(
+                padding: EdgeInsets.symmetric(horizontal: 10),
+                margin: EdgeInsets.only(left: 20, right: 20, top: 20),
+                child: Row(
+                  children: [
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Chennai", "Warehouse 1");
+                      },
+                      index: 1,
+                      currentIndex: _currentIndex,
+                      city: "Chennai",
+                      werehouse: "Warehouse 1",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Bangalore", "Warehouse 2");
+                      },
+                      index: 2,
+                      currentIndex: _currentIndex,
+                      city: "Bangalore",
+                      werehouse: "Warehouse 2",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Mumbai", "Warehouse 3");
+                      },
+                      index: 3,
+                      currentIndex: _currentIndex,
+                      city: "Mumbai",
+                      werehouse: "Warehouse 3",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Jaipur", "Warehouse 4");
+                      },
+                      index: 4,
+                      currentIndex: _currentIndex,
+                      city: "Jaipur",
+                      werehouse: "Warehouse 4",
+                    ),
+                    StepperComponent(
+                      onTap: () {
+                        _updateData("Delhi", "Warehouse 5");
+                      },
+                      index: 5,
+                      currentIndex: _currentIndex,
+                      city: "Delhi",
+                      werehouse: "Warehouse 5",
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(top: 8, left: 40, right: 40),
+                child: TabelData(data: data),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _updateData(String city, String warehouse) {
+    final Map<String, String> newData = {
+      "id": "ID${data.length + 1}",
+      "city": city,
+      "warehouse": warehouse,
+    };
+
+    if (data.isEmpty || data.last["city"] != city) {
+      // First tap, update arrival time
+      newData["arriveTime"] = _getCurrentTime();
+      data.add(newData);
+    } else {
+      // Second tap, update departure time
+      data.last["departureTime"] = _getCurrentTime();
+      _setCurrentIndex(_currentIndex + 1);
+    }
+
+    setState(() {});
+  }
+
+  void _setCurrentIndex(int index) {
+    setState(() {
+      _currentIndex = index;
+    });
+  }
+
+  String _getCurrentTime() {
+    final now = DateTime.now();
+    return "${now.hour}:${now.minute}:${now.second}";
+  }
+}
+
+class StepperComponent extends StatelessWidget {
+  final int currentIndex;
+  final int index;
+  final String city;
+  final String werehouse;
+  final VoidCallback onTap;
+
+  StepperComponent({
+    Key? key,
+    required this.currentIndex,
+    required this.city,
+    required this.onTap,
+    required this.index,
+    required this.werehouse,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              GestureDetector(
+                onTap: onTap,
+                child: Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(100),
+                    color: _getStepperColor(),
+                    border: Border.all(
+                      color: _getStepperBorderColor(),
+                    ),
+                  ),
+                ),
+              ),
+              Expanded(
+                child: Container(
+                  height: 2,
+                  color: currentIndex >= index + 1
+                      ? Colors.deepPurple
+                      : Color(0xFFe9dbFF),
+                ),
+              ),
+            ],
+          ),
+          Text(
+            city,
+            style: TextStyle(fontSize: 12),
+          ),
+          Text(
+            werehouse,
+            style: TextStyle(fontSize: 10),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Color _getStepperColor() {
+    return index == currentIndex
+        ? Colors.deepPurple
+        : Colors.transparent;
+  }
+
+  Color _getStepperBorderColor() {
+    return index >= currentIndex
+        ? Colors.deepPurple
+        : Color(0xFFe9dbFF);
+  }
+}
+
+class TabelData extends StatelessWidget {
+  final List<Map<String, String>> data;
+
+  TabelData({Key? key, required this.data}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return DataTable(
+      columns: const [
+        DataColumn(label: Text("Wool ID")),
+        DataColumn(label: Text("City")),
+        DataColumn(label: Text("WareHouse")),
+        DataColumn(label: Text("Arrive Time")),
+        DataColumn(label: Text("Departure Time")),
+      ],
+      rows: List<DataRow>.generate(
+        data.length,
+        (index) => DataRow(
+          cells: [
+            DataCell(Text(data[index]["id"] ?? "")),
+            DataCell(Text(data[index]["city"] ?? "")),
+            DataCell(Text(data[index]["warehouse"] ?? "")),
+            DataCell(Text(data[index]["arriveTime"] ?? "")),
+            DataCell(Text(data[index]["departureTime"] ?? "")),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+void main() {
+  runApp(const MaterialApp(
+    home: WoolTracker(),
+  ));
+}
+
+
+
+
+
+
+
+

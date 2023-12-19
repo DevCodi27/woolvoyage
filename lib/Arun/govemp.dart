@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:woolvoyage/category.dart';
 
 
 
@@ -31,6 +32,16 @@ class _govempState extends State<govemp> {
     // double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title:Text('Government'),
+          centerTitle: true,
+          backgroundColor: Color(0xFFe9dbFF),
+          leading: IconButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: ((context) => Category())));
+            },
+            icon: Icon(Icons.arrow_back)),
+        ),
         body: Stack(
           fit: StackFit.expand,
           children: [
@@ -40,26 +51,26 @@ class _govempState extends State<govemp> {
             ),
             Column(
               children: [
-                Card(
-                  color: Colors.white.withOpacity(0.2),
-                  elevation: 10,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.vertical(
-                      bottom: Radius.circular(25),
-                    ),
-                  ),
-                  margin: EdgeInsets.all(0),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,// Adjust width as needed
-                    height: 60,
-                    child: Center(
-                      child: Text(
-                        'Government Employee',
-                        style: TextStyle(fontSize: 25),
-                      ),
-                    ),
-                  ),
-                ),
+                // Card(
+                //   color: Colors.white.withOpacity(0.2),
+                //   elevation: 10,
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.vertical(
+                //       bottom: Radius.circular(25),
+                //     ),
+                //   ),
+                //   margin: EdgeInsets.all(0),
+                //   child: Container(
+                //     width: MediaQuery.of(context).size.width,// Adjust width as needed
+                //     height: 60,
+                //     child: Center(
+                //       child: Text(
+                //         'Government Employee',
+                //         style: TextStyle(fontSize: 25),
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 SizedBox(height: 20,),
                 Expanded(
                   child: Card(

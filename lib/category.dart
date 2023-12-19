@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:woolvoyage/Arun/Farmerdetails.dart';
 import 'package:woolvoyage/Arun/Industry.dart';
-import 'package:woolvoyage/Arun/Warehouse.dart';
-import 'package:woolvoyage/Arun/agent.dart';
+// import 'package:woolvoyage/Arun/Warehouse.dart';
 import 'package:woolvoyage/Arun/govemp.dart';
-import 'package:woolvoyage/profile.dart';
+ import 'package:woolvoyage/Arun/agent.dart';
+// import 'package:woolvoyage/profile.dart';
 import 'package:woolvoyage/viji1.dart';
 
 
@@ -18,7 +18,9 @@ class Category extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        
         title: const Text('Select your Category'),
+        centerTitle: true,
         backgroundColor: const Color(0xFFe9dbff),
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.all(
@@ -38,11 +40,11 @@ class Category extends StatelessWidget {
 class CategoryScreen extends StatelessWidget {
   final List<CategoryItem> categories = [
     CategoryItem('Farmers', Icons.people),
-    CategoryItem('Agents', Icons.work),
-    CategoryItem('Warehouse', Icons.store),
+    CategoryItem('Government Expert', Icons.work),
+    // CategoryItem('Warehouse', Icons.store),
     CategoryItem('Industry', Icons.build),
     CategoryItem('Government Officials', Icons.account_balance),
-    CategoryItem('Transporter', Icons.car_rental),
+    // CategoryItem('Transporter', Icons.car_rental),
     CategoryItem('Other Users', Icons.person),
   ];
 
@@ -53,11 +55,12 @@ class CategoryScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         decoration: BoxDecoration(
+          
           image: DecorationImage(
             image: const AssetImage('assets/pexels-pixabay-357138 (1).jpg'),
             fit: BoxFit.cover,
             colorFilter: ColorFilter.mode(
-              Colors.black.withOpacity(0.5),
+              Colors.black.withOpacity(0.2),
               BlendMode.darken,
             ),
           ),
@@ -141,18 +144,18 @@ Widget getCategoryPage(CategoryItem categoryItem) {
   switch (categoryItem.name) {
     case 'Farmers':
       return Farmer();
-    case 'Agents':
+    case 'Government Expert':
       return agent();
-    case 'Warehouse':
-      return ware();
+    // case 'Warehouse':
+    //   return ware();
     case 'Industry':
-      return indust();
+      return Industry();
     case 'Government Officials':
       return Goverment();
-    case 'Transporter':
-      return Reg();
+    // case 'Transporter':
+    //   return Reg();
     case 'Other Users':
-      return Ecommerce();
+      return homepage();
     default:
       return Container(); 
   }

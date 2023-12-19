@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-// import 'package:flutter/src/widgets/placeholder.dart';
+import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:intl/intl.dart';
 
 class buttonpage extends StatelessWidget {
@@ -140,7 +140,7 @@ class buttonpage extends StatelessWidget {
                 ),
                 child: Text('Wool Tops'),
               ),
-              Image.asset('assets/wooLtopas.jpg'),
+              Image.asset('assets/wooltopas.jpg'),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
@@ -1621,7 +1621,7 @@ class _greasywoolState extends State<greasywool> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20.0),
         child: Image(
-          image: AssetImage('assets/greasywool.jpeg'),
+          image: AssetImage('assets/greasywool.jpg'),
           fit: BoxFit.cover,
         ),
       ),
@@ -1799,7 +1799,7 @@ class _yarnState extends State<yarn> {
       child: ClipRRect(
         borderRadius: BorderRadius.circular(20.0),
         child: Image(
-          image: AssetImage('assets/greasywool.jpeg'),
+          image: AssetImage('assets/greasywool.jpg'),
           fit: BoxFit.cover,
         ),
       ),

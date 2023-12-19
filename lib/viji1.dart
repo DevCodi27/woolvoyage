@@ -5,13 +5,12 @@ import 'package:woolvoyage/main.dart';
 import 'viji2.dart';
 // import 'package:woolecommers/secondpage.dart';
 
-
 void main(List<String> args) {
-  runApp(Ecommerce());
+  runApp(MyApp());
 }
 
-class Ecommerce extends StatelessWidget {
-  const Ecommerce({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -80,7 +79,7 @@ class _homepageState extends State<homepage> {
               currentAccountPicture: CircleAvatar(
                 backgroundColor: Colors.white,
                 backgroundImage: AssetImage(
-                  "assets/logo.png",
+                  "assets/logo.jpg",
                 ),
                 radius: 100.0,
               ),
@@ -120,6 +119,7 @@ class _homepageState extends State<homepage> {
               ),
               onTap: () {
                 // Navigate to the home page
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
               },
             ),
             ListTile(
@@ -214,24 +214,6 @@ class _homepageState extends State<homepage> {
                 );
               },
             ),
-            ListTile(
-              leading: Icon(
-                Icons.home,
-                color: Colors.black,
-              ),
-              title: Text(
-                "Home Page",
-                style: TextStyle(fontWeight: FontWeight.bold),
-              ),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MyApp()
-                  ),
-                );
-              },
-            ),
           ],
         ),
       ),
@@ -240,7 +222,7 @@ class _homepageState extends State<homepage> {
         items: [
           Icon(Icons.category, size: 30),
           Icon(Icons.home, size: 30),
-          // Icon(Icons.settings, size: 30),  
+          // Icon(Icons.settings, size: 30),
         ],
         color: Color(0xffe9dbff),
         buttonBackgroundColor: Color(0xffe9dbff),
@@ -271,7 +253,7 @@ class HomePage1 extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   image: DecorationImage(
-                    image: AssetImage("assets/background.jpg"),
+                    image: AssetImage("assets/bgimage.jpg"),
                     fit: BoxFit.cover,
                     colorFilter: ColorFilter.mode(
                       Colors.black.withOpacity(0.2),
@@ -286,14 +268,14 @@ class HomePage1 extends StatelessWidget {
                   padding: EdgeInsets.all(10),
                   crossAxisCount: 2,
                   children: [
-                    _buildGridItem("Angoro Wool", "assets/angorowool.jpeg"),
+                    _buildGridItem("Angoro Wool", "assets/angorowool.jpg"),
                     _buildGridItem("Knitting wool", "assets/knittingwool.jpg"),
                     _buildGridItem("Merino Wool", "assets/merinowool.jpg"),
-                    _buildGridItem("Raw Sheep Wool", "assets/sheepwool.jpg"),
+                    _buildGridItem("Raw Sheep Wool", "assets/sheepwool.jpeg"),
                     _buildGridItem("Wollen Shawls", "assets/shawl.jpg"),
                     _buildGridItem("Wool Fibers", "assets/woolfibre.jpg"),
                     _buildGridItem("Wool Tops", "assets/wooltopas.jpg"),
-                    _buildGridItem("Yarn", "assets/yarn.jpg"),
+                    _buildGridItem("Yarn", "assets/yarn.jpeg"),
                     _buildGridItem("Greasy wool", "assets/greasywool.jpg"),
                     _buildGridItem("Sheep wool", "assets/sheepwool.jpg"),
                     _buildGridItem("Washed wool", "assets/washedwool.jpg"),
@@ -368,127 +350,3 @@ Widget _buildGridItem(String itemName, String imagePath) {
     ),
   );
 }
-
-// class SettingsPage extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Center(
-//       child: Text('Settings Page Content'),
-//     );
-//   }
-// }
-
-// //testing for cart
-// // import 'package:flutter/material.dart';
-
-// // void main() {
-// //   runApp(MyApp());
-// // }
-
-// // class Product {
-// //   final String name;
-// //   final double price;
-// //   final String imageUrl;
-
-// //   Product(this.name, this.price, this.imageUrl);
-// // }
-
-// // class CartPage extends StatefulWidget {
-// //   final List<Product> productsInCart;
-
-// //   const CartPage({Key? key, required this.productsInCart}) : super(key: key);
-
-// //   @override
-// //   _CartPageState createState() => _CartPageState();
-// // }
-
-// // class _CartPageState extends State<CartPage> {
-// //   @override
-// //   Widget build(BuildContext context) {
-// //     return MaterialApp(
-// //       home: Scaffold(
-// //         appBar: AppBar(
-// //           title: Text('Shopping Cart'),
-// //         ),
-// //         body: Padding(
-// //           padding: const EdgeInsets.all(16.0),
-// //           child: Column(
-// //             crossAxisAlignment: CrossAxisAlignment.start,
-// //             children: [
-// //               Text(
-// //                 'Items in Cart:',
-// //                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-// //               ),
-// //               SizedBox(height: 10),
-// //               // Display the items in the cart
-// //               Expanded(
-// //                 child: ListView.builder(
-// //                   itemCount: widget.productsInCart.length,
-// //                   itemBuilder: (context, index) {
-// //                     return Card(
-// //                       elevation: 5,
-// //                       margin: EdgeInsets.symmetric(vertical: 8),
-// //                       child: ListTile(
-// //                         leading: Image.network(
-// //                           widget.productsInCart[index].imageUrl,
-// //                           width: 50,
-// //                           height: 50,
-// //                           fit: BoxFit.cover,
-// //                         ),
-// //                         title: Text(widget.productsInCart[index].name),
-// //                         subtitle: Text(
-// //                             '\$${widget.productsInCart[index].price.toString()}'),
-// //                       ),
-// //                     );
-// //                   },
-// //                 ),
-// //               ),
-// //               SizedBox(height: 20),
-// //               // Display the total price
-// //               Text(
-// //                 'Total: \$${_calculateTotalPrice().toStringAsFixed(2)}',
-// //                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-// //               ),
-// //             ],
-// //           ),
-// //         ),
-// //       ),
-// //     );
-// //   }
-
-// //   // Helper method to calculate the total price of items in the cart
-// //   double _calculateTotalPrice() {
-// //     double total = 0.0;
-// //     for (var product in widget.productsInCart) {
-// //       total += product.price;
-// //     }
-// //     return total;
-// //   }
-// // }
-
-// // class MyApp extends StatelessWidget {
-// //   @override
-// //   Widget build(BuildContext context) {
-// //     return MaterialApp(
-// //       title: 'E-commerce App',
-// //       theme: ThemeData(
-// //         primarySwatch: Colors.blue,
-// //       ),
-// //       home: CartPage(
-// //         productsInCart: [
-// //           Product('Product 1', 20.0, 'https://example.com/product1.jpg'),
-// //           Product('Product 2', 30.0, 'https://example.com/product2.jpg'),
-// //           // Add more products as needed
-// //         ],
-// //       ),
-// //     );
-// //   }
-// // }
-
-// import 'package:flutter/material.dart';
-
-// void main() {
-//   runApp(const MaterialApp(
-//     home: OrderTracker(),
-//   ));
-// }

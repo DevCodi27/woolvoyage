@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:woolvoyage/category.dart';
 import 'dart:io';
 
 import '../main.dart';
@@ -36,6 +37,16 @@ class _FarmerdetailsState extends State<Farmerdetails> {
     // double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title:Text('Farmer Details'),
+          centerTitle: true,
+          backgroundColor: Color(0xFFe9dbFF),
+          leading: IconButton(
+            onPressed: (){
+               Navigator.push(context, MaterialPageRoute(builder: ((context) => Category())));
+            },
+            icon: Icon(Icons.arrow_back)),
+        ),
         body: Stack(
           fit: StackFit.expand,
           children: [
@@ -45,26 +56,27 @@ class _FarmerdetailsState extends State<Farmerdetails> {
             ),
             Column(
               children: [
-                Card(
-                  color: Colors.white.withOpacity(0.2),
-                  elevation: 10,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.vertical(
-                      bottom: Radius.circular(25),
-                    ),
-                  ),
-                  margin: EdgeInsets.all(0),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width, 
-                    height: 60,
-                    child: Center(
-                      child: Text(
-                        'Farmer Details',
-                        style: TextStyle(fontSize: 25),
-                      ),
-                    ),
-                  ),
-                ),
+                // Card(
+                
+                //   color: Colors.white.withOpacity(0.2),
+                //   elevation: 10,
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.vertical(
+                //       bottom: Radius.circular(25),
+                //     ),
+                //   ),
+                //   margin: EdgeInsets.all(0),
+                //   child: Container(
+                //     width: MediaQuery.of(context).size.width, 
+                //     height: 60,
+                //     child: Center(
+                //       child: Text(
+                //         'Farmer Details',
+                //         style: TextStyle(fontSize: 25),
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 SizedBox(height: 20,),
                 Expanded(
                   child: Card(

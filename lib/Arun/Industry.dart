@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 
+import '../category.dart';
 
+void main() {
+  runApp(MyApp());
+}
 
-class indust extends StatelessWidget {
-  const indust({super.key});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -28,40 +32,48 @@ class _IndustryState extends State<Industry> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    // double screenHeight = MediaQuery.of(context).size.height;
+    double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
+         appBar: AppBar(
+          title:Text('Industry'),
+          centerTitle: true,
+          backgroundColor: Color(0xFFe9dbFF),
+          leading: IconButton(
+            onPressed: (){
+               Navigator.push(context, MaterialPageRoute(builder: ((context) => Category())));
+            },
+            icon: Icon(Icons.arrow_back)),
+        ),
         body: Stack(
           fit: StackFit.expand,
           children: [
             Image.asset(
-              'assets/bgimage.jpg', 
-              fit: BoxFit.cover, 
+              'assets/bgimage.jpg', // Replace with your image path
+              fit: BoxFit.cover, // Cover the entire screen
             ),
             Column(
               children: [
-                Card(
-                  color: Colors.white.withOpacity(0.2),
-                  elevation: 10,
-                  
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.vertical(
-                      bottom: Radius.circular(25),
-                    ),
-                  ),
-                  
-                  margin: EdgeInsets.all(0),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width,
-                    height: 60,
-                    
-                  child: Row(children: [
-                    ListTile(
-                      leading: Icon(Icons.arrow_back),
-                    )
-                  ]),
-                  ),
-                ),
+                // Card(
+                //   color: Colors.white.withOpacity(0.2),
+                //   elevation: 10,
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.vertical(
+                //       bottom: Radius.circular(25),
+                //     ),
+                //   ),
+                //   margin: EdgeInsets.all(0),
+                //   child: Container(
+                //     width: MediaQuery.of(context).size.width,// Adjust width as needed
+                //     height: 60,
+                //     child: Center(
+                //       child: Text(
+                //         'Industry',
+                //         style: TextStyle(fontSize: 25),
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 SizedBox(height: 20,),
                 Expanded(
                   child: Card(
@@ -73,7 +85,7 @@ class _IndustryState extends State<Industry> {
                     margin: EdgeInsets.all(0),
                     child: SingleChildScrollView(
                       child: Container(
-                        width: screenWidth * 0.9, 
+                        width: screenWidth * 0.9, // 80% of screen width
 
                         child: Column(
                           children: [

@@ -116,7 +116,7 @@ class _MyHomePageState extends State<MyHomePage> {
             icon: TextButton(onPressed: (){
                Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Ecommerce()),
+                      MaterialPageRoute(builder: (context) => homepage()),
                     );
             },child: Icon(Icons.trolley,),style: TextButton.styleFrom(foregroundColor: Colors.black),),
             label: 'E-commerce',

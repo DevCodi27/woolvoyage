@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:woolvoyage/category.dart';
 // import 'package:woolvoyage/Arun/login.dart';
 import 'package:woolvoyage/main.dart';
 
@@ -35,6 +36,14 @@ class _agentState extends State<agent> {
     // double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
+        appBar: AppBar(
+          title: Text('Goverment Expert'),
+          centerTitle: true,
+          leading: IconButton(onPressed: (){
+            Navigator.push(context,MaterialPageRoute(builder: (context)=>Category()));
+          }, icon: Icon(Icons.arrow_back)),
+          backgroundColor: Color(0xFFe9dbFF),
+        ),
         body: Stack(
           fit: StackFit.expand,
           children: [
@@ -44,26 +53,26 @@ class _agentState extends State<agent> {
             ),
             Column(
               children: [
-                Card(
-                  color: Colors.white.withOpacity(0.2),
-                  elevation: 10,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.vertical(
-                      bottom: Radius.circular(25),
-                    ),
-                  ),
-                  margin: EdgeInsets.all(0),
-                  child: Container(
-                    width: MediaQuery.of(context).size.width, 
-                    height: 60,
-                    child: Center(
-                      child: Text(
-                        'Agent Details',
-                        style: TextStyle(fontSize: 25),
-                      ),
-                    ),
-                  ),
-                ),
+                // Card(
+                //   color: Colors.white.withOpacity(0.2),
+                //   elevation: 10,
+                //   shape: RoundedRectangleBorder(
+                //     borderRadius: BorderRadius.vertical(
+                //       bottom: Radius.circular(25),
+                //     ),
+                //   ),
+                //   margin: EdgeInsets.all(0),
+                //   child: Container(
+                //     width: MediaQuery.of(context).size.width, 
+                //     height: 60,
+                //     child: Center(
+                //       child: Text(
+                //         'Agent Details',
+                //         style: TextStyle(fontSize: 25),
+                //       ),
+                //     ),
+                //   ),
+                // ),
                 SizedBox(height: 50,),
                 Expanded(
                   child: Card(

@@ -3,6 +3,8 @@ import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+import '../main.dart';
+
 
 
 class Farmer extends StatelessWidget {
@@ -31,15 +33,15 @@ class _FarmerdetailsState extends State<Farmerdetails> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    // double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         body: Stack(
           fit: StackFit.expand,
           children: [
             Image.asset(
-              'assets/bgimage.jpg', // Replace with your image path
-              fit: BoxFit.cover, // Cover the entire screen
+              'assets/bgimage.jpg', 
+              fit: BoxFit.cover, 
             ),
             Column(
               children: [
@@ -53,7 +55,7 @@ class _FarmerdetailsState extends State<Farmerdetails> {
                   ),
                   margin: EdgeInsets.all(0),
                   child: Container(
-                    width: MediaQuery.of(context).size.width, // Adjust width as needed
+                    width: MediaQuery.of(context).size.width, 
                     height: 60,
                     child: Center(
                       child: Text(
@@ -74,7 +76,7 @@ class _FarmerdetailsState extends State<Farmerdetails> {
                     margin: EdgeInsets.all(0),
                     child: SingleChildScrollView(
                       child: Container(
-                        width: screenWidth * 0.9, // 80% of screen width
+                        width: screenWidth * 0.9, 
 
                         child: Column(
                           children: [
@@ -114,7 +116,7 @@ class _FarmerdetailsState extends State<Farmerdetails> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10), // Dynamic phone number inputs
+                            SizedBox(height: 10), 
                             Column(
                               children: textFields.map((textField) => buildInputBox(textField)).toList(),
                             ),
@@ -207,6 +209,7 @@ class _FarmerdetailsState extends State<Farmerdetails> {
                   child: ElevatedButton(
 
                     onPressed: () async{
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(Size(150, 40)),
@@ -403,7 +406,7 @@ class _MyImagePickerAppState extends State<MyImagePickerApp> {
         _imagePath = pickedFile.path;
       });
     } else {
-      // The user canceled the image selection.
+      
     }
   }
 
@@ -416,7 +419,7 @@ class _MyImagePickerAppState extends State<MyImagePickerApp> {
         _imagePath = pickedFile.path;
       });
     } else {
-      // The user canceled taking a picture.
+      
     }
   }
 
@@ -428,8 +431,8 @@ class _MyImagePickerAppState extends State<MyImagePickerApp> {
           fit: StackFit.expand,
           children: [
             Image.asset(
-              'images/Sheep1.jpeg', // Replace with your image path
-              fit: BoxFit.cover, // Cover the entire screen
+              'images/Sheep1.jpeg', 
+              fit: BoxFit.cover, 
             ),
             Column(
               children: [
@@ -443,7 +446,7 @@ class _MyImagePickerAppState extends State<MyImagePickerApp> {
                   ),
                   margin: EdgeInsets.all(0),
                   child: Container(
-                    width: MediaQuery.of(context).size.width, // Adjust width as needed
+                    width: MediaQuery.of(context).size.width, 
                     height: 60,
                     child: Center(
                       child: Row(

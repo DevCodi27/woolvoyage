@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:woolvoyage/main.dart';
 
 class WoolTracker extends StatefulWidget {
   const WoolTracker({Key? key}) : super(key: key);
@@ -20,7 +21,7 @@ class _WoolTrackerState extends State<WoolTracker> {
         backgroundColor: Color(0xFFe9dbFF),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => MyHomePage())));
           },
           icon: Icon(Icons.arrow_back),
         ),

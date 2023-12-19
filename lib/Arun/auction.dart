@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-// import 'package:woolvoyage/agent.dart';
+
 
 
 
@@ -40,8 +40,8 @@ class _eAuctionState extends State<eAuction> {
               IconButton(
                 icon: Icon(Icons.search),
                 onPressed: () {
-                  // Handle search icon press
-                  // Add your custom logic here
+                  
+                  
                 },
               ),
             ],
@@ -65,15 +65,15 @@ class _eAuctionState extends State<eAuction> {
                 ListTile(
                   title: Text('Item 1'),
                   onTap: () {
-                    // Handle drawer item press
-                    // Add your custom logic here
+                    
+                    
                   },
                 ),
                 ListTile(
                   title: Text('Item 2'),
                   onTap: () {
-                    // Handle drawer item press
-                    // Add your custom logic here
+                    
+                    
                   },
                 ),
               ],

@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+// import 'package:woolvoyage/Arun/login.dart';
+import 'package:woolvoyage/main.dart';
 
 
-class Agent extends StatelessWidget {
-  const Agent({super.key});
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -29,15 +32,15 @@ class _agentState extends State<agent> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    // double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         body: Stack(
           fit: StackFit.expand,
           children: [
             Image.asset(
-              'assets/bgimage.jpg', // Replace with your image path
-              fit: BoxFit.cover, // Cover the entire screen
+              'assets/bgimage.jpg', 
+              fit: BoxFit.cover, 
             ),
             Column(
               children: [
@@ -51,7 +54,7 @@ class _agentState extends State<agent> {
                   ),
                   margin: EdgeInsets.all(0),
                   child: Container(
-                    width: MediaQuery.of(context).size.width, // Adjust width as needed
+                    width: MediaQuery.of(context).size.width, 
                     height: 60,
                     child: Center(
                       child: Text(
@@ -72,7 +75,7 @@ class _agentState extends State<agent> {
                     margin: EdgeInsets.all(0),
                     child: SingleChildScrollView(
                       child: Container(
-                        width: screenWidth * 0.9, // 80% of screen width
+                        width: screenWidth * 0.9, 
 
                         child: Column(
                           children: [
@@ -112,67 +115,13 @@ class _agentState extends State<agent> {
                                 ),
                               ],
                             ),
-                            SizedBox(height: 10), // Dynamic phone number inputs
+                            SizedBox(height: 10), 
                             Column(
                               children: textFields.map((textField) => buildInputBox(textField)).toList(),
                             ),
+                            
                             SizedBox(height: 10),
-                            buildInputBox(
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: MyListViewInputBox(onNameSelected: (name) {
-                                  setState(() {
-                                    selectedName = name;
-                                  });
-                                },),
-                              ),
-                            ),
-                            SizedBox(height: 10),
-                            for (int i = 0; i < breedCardCount; i++)
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                children: [
-                                  if (selectedName.isNotEmpty)
-                                    buildInputBox(
-                                      Container(
-                                        width: 1200, // Adjust the width as needed
-                                        child: Column(
-                                          mainAxisAlignment: MainAxisAlignment.center,
-                                          children: <Widget>[
-                                            Text(' $selectedName'),
-                                            SizedBox(height: 10),
-                                            buildInputBox(
-                                              TextField(
-                                                decoration: InputDecoration(
-                                                  border: InputBorder.none,
-                                                  labelText: 'Types of Breed',
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(height: 16),
-                                            buildInputBox(
-                                              TextField(
-                                                keyboardType: TextInputType.number,
-                                                inputFormatters: [FilteringTextInputFormatter.digitsOnly],
-                                                decoration: InputDecoration(
-                                                  border: InputBorder.none,
-                                                  labelText: 'Price',
-                                                ),
-                                              ),
-                                            ),
-                                            SizedBox(width: 20),
-                                            IconButton(
-                                              onPressed: () {
-                                                addBreedCard();
-                                              },
-                                              icon: Icon(Icons.add_circle, size: 70, color: Colors.black),
-                                            )
-                                          ],
-                                        ),
-                                      ),
-                                    ),
-                                ],
-                              ),
+                            
 
                           ],
                         ),
@@ -187,6 +136,7 @@ class _agentState extends State<agent> {
                   child: ElevatedButton(
 
                     onPressed: () {
+                       Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(Size(150, 40)),
@@ -253,97 +203,3 @@ Widget rowinput(Widget textField) {
 }
 
 
-class MyListViewInputBox extends StatefulWidget {
-  final Function(String) onNameSelected;
-
-  MyListViewInputBox({required this.onNameSelected});
-
-  @override
-  _MyListViewInputBoxState createState() => _MyListViewInputBoxState();
-}
-
-class _MyListViewInputBoxState extends State<MyListViewInputBox> {
-  List<String> names = [
-    'Raw Wool',
-    'Yarn',
-    'Garments',
-    'Washed Wool',
-    'other products',
-  ];
-
-  TextEditingController _textEditingController = TextEditingController();
-  String selectedName = '';
-
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        TextField(
-          controller: _textEditingController,
-          decoration: InputDecoration(
-              hintText: 'Willing to sell under',
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none
-              )
-          ),
-          readOnly: true,
-          onTap: () {
-            _showListView(context);
-          },
-        ),
-        Positioned(
-          top: 60,
-          left: 0,
-          right: 0,
-          child: Container(
-            height: 200,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: ListView.builder(
-              itemCount: names.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(names[index]),
-                  onTap: () {
-                    widget.onNameSelected(names[index]);
-                    Navigator.pop(context);
-                  },
-                );
-              },
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-  void _showListView(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return Container(
-          height: 200,
-          child: ListView.builder(
-            itemCount: names.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(names[index]),
-                onTap: () {
-                  setState(() {
-                    selectedName = names[index];
-                    _textEditingController.text = selectedName;
-                  });
-                  widget.onNameSelected(names[index]);
-                  Navigator.pop(context);
-                },
-              );
-            },
-          ),
-        );
-      },
-    );
-  }
-}

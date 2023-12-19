@@ -28,36 +28,38 @@ class _IndustryState extends State<Industry> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    // double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         body: Stack(
           fit: StackFit.expand,
           children: [
             Image.asset(
-              'assets/bgimage.jpg', // Replace with your image path
-              fit: BoxFit.cover, // Cover the entire screen
+              'assets/bgimage.jpg', 
+              fit: BoxFit.cover, 
             ),
             Column(
               children: [
                 Card(
                   color: Colors.white.withOpacity(0.2),
                   elevation: 10,
+                  
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.vertical(
                       bottom: Radius.circular(25),
                     ),
                   ),
+                  
                   margin: EdgeInsets.all(0),
                   child: Container(
-                    width: MediaQuery.of(context).size.width,// Adjust width as needed
+                    width: MediaQuery.of(context).size.width,
                     height: 60,
-                    child: Center(
-                      child: Text(
-                        'Industry',
-                        style: TextStyle(fontSize: 25),
-                      ),
-                    ),
+                    
+                  child: Row(children: [
+                    ListTile(
+                      leading: Icon(Icons.arrow_back),
+                    )
+                  ]),
                   ),
                 ),
                 SizedBox(height: 20,),
@@ -71,7 +73,7 @@ class _IndustryState extends State<Industry> {
                     margin: EdgeInsets.all(0),
                     child: SingleChildScrollView(
                       child: Container(
-                        width: screenWidth * 0.9, // 80% of screen width
+                        width: screenWidth * 0.9, 
 
                         child: Column(
                           children: [

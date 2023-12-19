@@ -4,29 +4,35 @@ import 'package:woolvoyage/Arun/Industry.dart';
 import 'package:woolvoyage/Arun/Warehouse.dart';
 import 'package:woolvoyage/Arun/agent.dart';
 import 'package:woolvoyage/Arun/govemp.dart';
+import 'package:woolvoyage/profile.dart';
 import 'package:woolvoyage/viji1.dart';
 
-void main() {
-  runApp(
-    MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Select your Category'),
-          backgroundColor: const Color(0xFFe9dbff),
-          shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.all(
-              Radius.circular(30),
-            ),
-            side: BorderSide(
-              color: Colors.white,
-              width: 2.0,
-            ),
+
+
+class Category extends StatelessWidget {
+  const Category({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Select your Category'),
+        backgroundColor: const Color(0xFFe9dbff),
+        shape: const RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(
+            Radius.circular(30),
+          ),
+          side: BorderSide(
+            color: Colors.white,
+            width: 2.0,
           ),
         ),
-        body: CategoryScreen(),
       ),
-    ),
-  );
+      body: CategoryScreen(),
+    );
+  }
 }
 
 class CategoryScreen extends StatelessWidget {
@@ -36,6 +42,7 @@ class CategoryScreen extends StatelessWidget {
     CategoryItem('Warehouse', Icons.store),
     CategoryItem('Industry', Icons.build),
     CategoryItem('Government Officials', Icons.account_balance),
+    CategoryItem('Transporter', Icons.car_rental),
     CategoryItem('Other Users', Icons.person),
   ];
 
@@ -81,25 +88,25 @@ class CategoryTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      elevation: 1, // Set elevation to 0 to remove the shadow
-      color: Colors.white12, // Set the background color to transparent
+      elevation: 1, 
+      color: Colors.white12, 
       child: Container(
         width: 350,
         height: 50,
         decoration: BoxDecoration(
           borderRadius:
-              BorderRadius.circular(10), // Adjust the border radius as needed
+              BorderRadius.circular(10), 
           border: Border.all(
-            color: const Color(0xFFe9dbff), // Adjust the border color as needed
-            width: 2.0, // Adjust the border width as needed
+            color: const Color(0xFFe9dbff), 
+            width: 2.0, 
           ),
         ),
         child: Material(
           color: Colors.white12,
           child: InkWell(
             onTap: () {
-              // Handle category tap
-              // You can navigate to a new screen or perform other actions here
+              
+              
              Navigator.push(
     context,
     MaterialPageRoute(builder: (context) => getCategoryPage(categoryItem)));
@@ -135,16 +142,18 @@ Widget getCategoryPage(CategoryItem categoryItem) {
     case 'Farmers':
       return Farmer();
     case 'Agents':
-      return Agent();
+      return agent();
     case 'Warehouse':
       return ware();
     case 'Industry':
       return indust();
     case 'Government Officials':
       return Goverment();
+    case 'Transporter':
+      return Reg();
     case 'Other Users':
       return Ecommerce();
     default:
-      return Container(); // You can return a default page or handle the case accordingly
+      return Container(); 
   }
 }

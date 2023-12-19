@@ -28,14 +28,14 @@ class _govempState extends State<govemp> {
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    // double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
         body: Stack(
           fit: StackFit.expand,
           children: [
             Image.asset(
-              'images/Sheep1.jpeg', // Replace with your image path
+              'assets/bgimage.jpg', // Replace with your image path
               fit: BoxFit.cover, // Cover the entire screen
             ),
             Column(

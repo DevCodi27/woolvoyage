@@ -1,6 +1,8 @@
 // main.dart
 
 import 'package:flutter/material.dart';
+import 'package:woolvoyage/category.dart';
+import 'package:woolvoyage/help.dart';
 import 'package:woolvoyage/viji1.dart';
 import 'package:woolvoyage/wool_tracking.dart';
 
@@ -16,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(),
+      home: Category(),
       debugShowCheckedModeBanner: false,
     );
   }
@@ -33,6 +35,7 @@ class _MyHomePageState extends State<MyHomePage> {
   // Define your pages here
   final List<Widget> _pages = [
     MyHomePageContent(),
+    Blank(),
     Blank(),
     Blank(),
   ];
@@ -76,7 +79,8 @@ class _MyHomePageState extends State<MyHomePage> {
           actions: <Widget>[
             TextButton(
               onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+                 Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
+                // Navigator.pop(context);
               },
               child: Text('Close'),
             ),
@@ -93,6 +97,9 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text('Wool Voyage'),
         centerTitle: true,
         backgroundColor: Color(0xFFe9dbFF),
+        leading: IconButton(onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: ((context) => Category())));
+        },icon: Icon(Icons.arrow_back)),
       ),
       body: _pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
@@ -114,6 +121,15 @@ class _MyHomePageState extends State<MyHomePage> {
             },child: Icon(Icons.trolley,),style: TextButton.styleFrom(foregroundColor: Colors.black),),
             label: 'E-commerce',
           ),
+           BottomNavigationBarItem(
+            icon: TextButton(onPressed: (){
+               Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Help()),
+                    );
+            },child: Icon(Icons.school,),style: TextButton.styleFrom(foregroundColor: Colors.black),),
+            label: 'Education & Training',
+          ),
           // BottomNavigationBarItem(
           //   icon: Icon(Icons.trending_neutral_sharp),
           //   label: 'Settings',
@@ -122,7 +138,7 @@ class _MyHomePageState extends State<MyHomePage> {
         currentIndex: _selectedIndex,
         onTap: _onItemTapped,
         backgroundColor: Colors.blue,
-        selectedItemColor: Colors.white,
+        selectedItemColor: Colors.blue,
         unselectedItemColor: Colors.black,
       ),
     );

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-// import 'package:wool_voyage/Dawood/docs_screen.dart';
-// import 'package:wool_voyage/Dawood/videos_screen.dart';
-// import 'package:wool_voyage/Dawood/policies_screen.dart';
+import 'package:woolvoyage/main.dart';
 
 
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+
+
+
+class Help extends StatelessWidget {
+  const Help({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -31,6 +32,12 @@ class HomeScreen extends StatelessWidget {
       child: Scaffold(
         appBar: AppBar(
           title: const Text('Wool Voyage Community'),
+          centerTitle: true,
+          leading: IconButton(
+            onPressed: (){
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>MyHomePage()));
+            },
+            icon: Icon(Icons.arrow_back)),
           bottom: const TabBar(
             tabs: [
               Tab(text: 'Chat'),
@@ -39,13 +46,14 @@ class HomeScreen extends StatelessWidget {
               Tab(text: 'Policies'),
             ],
           ),
+          
         ),
         body: const TabBarView(
           children: [
             ChatScreen(),
-            // DocsScreen(title: 'Document',),
-            // VideosScreen(),
-            // PoliciesScreen(),
+            
+            
+            
           ],
         ),
       ),
@@ -123,7 +131,7 @@ class _ChatScreenState extends State<ChatScreen> {
     if (message.isNotEmpty) {
       setState(() {
         _chatMessages.add('User: $message');
-        // Implement bot response or query handling here
+        
         _chatMessages.add('Bot: Typing');
         _messageController.clear();
       });

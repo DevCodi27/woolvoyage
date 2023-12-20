@@ -1,6 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:woolvoyage/Arun/jobworker.dart';
+import 'package:woolvoyage/Arun/processTracking.dart';
+// import 'package:woolvoyage/Arun/processTracking.dart';
+import 'package:woolvoyage/profile.dart';
+// import 'package:woolvoyage/search.dart';
 
 import '../category.dart';
+
+List list = ["Roll","Genral Manager","Data Manager","Technical Team","Supervisor","Jobworker","Transporter"];
 
 void main() {
   runApp(MyApp());
@@ -28,11 +35,12 @@ class Industry extends StatefulWidget {
 class _IndustryState extends State<Industry> {
   List<Widget> textFields = [];
   int breedCardCount = 1;
+  String selectedRole = "Roll";
 
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.height;
+    // double screenHeight = MediaQuery.of(context).size.height;
     return SafeArea(
       child: Scaffold(
          appBar: AppBar(
@@ -137,13 +145,49 @@ class _IndustryState extends State<Industry> {
                             ),),
 
 
-                            SizedBox(height: 10,),
-                            buildInputBox(TextField(
-                              decoration: InputDecoration(
-                                border: InputBorder.none,
-                                hintText: 'Role',
-                              ),
-                            ),),
+                            // SizedBox(height: 10,),
+                            // buildInputBox(TextField(
+                            //   decoration: InputDecoration(
+                            //     border: InputBorder.none,
+                            //     hintText: 'Role',
+                            //   ),
+                            // ),),
+
+                             SizedBox(height: 20,
+                             width: 300,),
+        Container(
+           decoration: BoxDecoration(
+                        border: Border.all(
+                            color:Colors.black),
+                            borderRadius: BorderRadius.circular(8)),
+                    padding: EdgeInsets.all(8),
+                    margin: const EdgeInsets.only(left: 60,right: 60),
+         
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton(
+              value: selectedRole,
+              isExpanded: true,
+              alignment: Alignment.center,
+              items:list.map((role) {
+                return DropdownMenuItem(
+                  value: role,
+                  child: Text(role),
+                );
+              }).toList(),
+              onChanged: (value) {
+                setState(() {
+                  selectedRole = value.toString();
+                });
+              },
+            ),
+          ),
+        ),
+        SizedBox(height: 20),
+        // Text(
+        //   'Selected Role: $selectedRole',
+        //   style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        // ),
+
 
                             SizedBox(height: 10,),
                             buildInputBox(TextField(
@@ -165,7 +209,9 @@ class _IndustryState extends State<Industry> {
                   width: 150,
                   child: ElevatedButton(
 
-                    onPressed: () {},
+                    onPressed: () {
+                     navigateToPage(selectedRole);
+                    },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(Size(150, 40)),
                       backgroundColor: MaterialStateProperty.all<Color>(
@@ -183,6 +229,31 @@ class _IndustryState extends State<Industry> {
       ),
     );
   }
+  void navigateToPage(String selectedRole) {
+  switch (selectedRole) {
+    case "Genral Manager":
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ProcessTracker()));
+      break;
+    case "Data Manager":
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ProcessTracker()));
+      break;
+      case "Technical Team":
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ProcessTracker()));
+      break;
+      case "Supervisor":
+      Navigator.push(context, MaterialPageRoute(builder: (context) => ProcessTracker()));
+      break;
+      case "Jobworker":
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Jobworker()));
+      break;
+      case "Transporter":
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Reg()));
+      break;
+    // Add more cases for other roles
+    default:
+      break;
+  }
+}
   Widget buildInputBox(Widget textField) {
     return Container(
       width: 1250,

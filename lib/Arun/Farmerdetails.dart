@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:woolvoyage/category.dart';
+import 'package:woolvoyage/farmnav.dart';
 import 'dart:io';
 
-import '../main.dart';
+// import '../main.dart';
 
 
 
@@ -186,13 +187,13 @@ class _FarmerdetailsState extends State<Farmerdetails> {
                                   IconButton(onPressed: (){addBreedCard();}, icon: Icon(Icons.add_circle,size: 70,color: Colors.black))
                                 ],
                               ),
-                            SizedBox(height: 10),
-                            buildInputBox(
-                              Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: MyListViewInputBox(),
-                              ),
-                            ),
+                            // SizedBox(height: 10),
+                            // buildInputBox(
+                            //   Padding(
+                            //     padding: const EdgeInsets.all(8.0),
+                            //     // child: MyListViewInputBox(),
+                            //   ),
+                            // ),
                             SizedBox(height: 10),
                             Text('Bank details'),
                             SizedBox(height: 10),
@@ -221,7 +222,7 @@ class _FarmerdetailsState extends State<Farmerdetails> {
                   child: ElevatedButton(
 
                     onPressed: () async{
-                      Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage()));
+                      Navigator.push(context, MaterialPageRoute(builder: (context) => MyHomePage2()));
                     },
                     style: ButtonStyle(
                       minimumSize: MaterialStateProperty.all(Size(150, 40)),
@@ -288,101 +289,101 @@ Widget rowinput(Widget textField) {
 }
 
 
-class MyListViewInputBox extends StatefulWidget {
-  @override
-  _MyListViewInputBoxState createState() => _MyListViewInputBoxState();
-}
+// class MyListViewInputBox extends StatefulWidget {
+//   @override
+//   _MyListViewInputBoxState createState() => _MyListViewInputBoxState();
+// }
 
-class _MyListViewInputBoxState extends State<MyListViewInputBox> {
-  List<String> names = [
-    'Government',
-    'Private',
-    'Local',
-    'Export',
+// class _MyListViewInputBoxState extends State<MyListViewInputBox> {
+//   List<String> names = [
+//     'Government',
+//     'Private',
+//     'Local',
+//     'Export',
 
-  ];
+//   ];
 
-  TextEditingController _textEditingController = TextEditingController();
-  String selectedName = '';
+//   TextEditingController _textEditingController = TextEditingController();
+//   String selectedName = '';
 
-  @override
-  Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        TextField(
-          controller: _textEditingController,
-          decoration: InputDecoration(
-              hintText: 'Willing to sell under',
-              border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(10),
-                  borderSide: BorderSide.none
-              )
-          ),
-          readOnly: true,
-          onTap: () {
-            _showListView(context);
-          },
-        ),
-        Positioned(
-          top: 60,
-          left: 0,
-          right: 0,
-          child: Container(
-            height: 200,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.grey),
-              borderRadius: BorderRadius.circular(8.0),
-            ),
-            child: ListView.builder(
-              itemCount: names.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(names[index]),
-                  onTap: () {
-                    setState(() {
-                      selectedName = names[index];
-                      _textEditingController.text = selectedName;
-                    });
-                    Navigator.pop(context);
-                  },
-                );
-              },
-            ),
-          ),
-        ),
-      ],
-    );
-  }
-
-
+//   @override
+//   Widget build(BuildContext context) {
+//     return Stack(
+//       children: [
+//         TextField(
+//           controller: _textEditingController,
+//           decoration: InputDecoration(
+//               hintText: 'Willing to sell under',
+//               border: OutlineInputBorder(
+//                   borderRadius: BorderRadius.circular(10),
+//                   borderSide: BorderSide.none
+//               )
+//           ),
+//           readOnly: true,
+//           onTap: () {
+//             _showListView(context);
+//           },
+//         ),
+//         Positioned(
+//           top: 60,
+//           left: 0,
+//           right: 0,
+//           child: Container(
+//             height: 200,
+//             decoration: BoxDecoration(
+//               border: Border.all(color: Colors.grey),
+//               borderRadius: BorderRadius.circular(8.0),
+//             ),
+//             child: ListView.builder(
+//               itemCount: names.length,
+//               itemBuilder: (context, index) {
+//                 return ListTile(
+//                   title: Text(names[index]),
+//                   onTap: () {
+//                     setState(() {
+//                       selectedName = names[index];
+//                       _textEditingController.text = selectedName;
+//                     });
+//                     Navigator.pop(context);
+//                   },
+//                 );
+//               },
+//             ),
+//           ),
+//         ),
+//       ],
+//     );
+//   }
 
 
-  void _showListView(BuildContext context) {
-    showModalBottomSheet(
-      context: context,
-      builder: (context) {
-        return Container(
-          height: 200,
-          child: ListView.builder(
-            itemCount: names.length,
-            itemBuilder: (context, index) {
-              return ListTile(
-                title: Text(names[index]),
-                onTap: () {
-                  setState(() {
-                    selectedName = names[index];
-                    _textEditingController.text = selectedName;
-                  });
-                  Navigator.pop(context);
-                },
-              );
-            },
-          ),
-        );
-      },
-    );
-  }
-}
+
+
+//   void _showListView(BuildContext context) {
+//     showModalBottomSheet(
+//       context: context,
+//       builder: (context) {
+//         return Container(
+//           height: 200,
+//           child: ListView.builder(
+//             itemCount: names.length,
+//             itemBuilder: (context, index) {
+//               return ListTile(
+//                 title: Text(names[index]),
+//                 onTap: () {
+//                   setState(() {
+//                     selectedName = names[index];
+//                     _textEditingController.text = selectedName;
+//                   });
+//                   Navigator.pop(context);
+//                 },
+//               );
+//             },
+//           ),
+//         );
+//       },
+//     );
+//   }
+// }
 
 
 

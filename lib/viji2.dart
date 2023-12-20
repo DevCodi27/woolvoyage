@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
+// import 'package:flutter/src/widgets/placeholder.dart';
 import 'package:intl/intl.dart';
 
 class buttonpage extends StatelessWidget {
@@ -2059,8 +2059,8 @@ class _buyState extends State<buy> {
   late String _email, _password;
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
+    // double height = MediaQuery.of(context).size.height;
+    // double width = MediaQuery.of(context).size.width;
     return Scaffold(
       resizeToAvoidBottomInset: false,
       body: DecoratedBox(

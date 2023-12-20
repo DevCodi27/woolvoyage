@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 
-void main(){
-  runApp(MaterialApp(
-    home: OrderTracker(),
-  ));
+void main() {
+  runApp(ProcessTracker());
 }
 
-class OrderTracker extends StatefulWidget {
-  const OrderTracker({Key? key}) : super(key: key);
+class ProcessTracker extends StatefulWidget {
+  const ProcessTracker({Key? key}) : super(key: key);
 
   @override
-  State<OrderTracker> createState() => _OrderTrackerState();
+  State<ProcessTracker> createState() => _ProcessTrackerState();
 }
 
-class _OrderTrackerState extends State<OrderTracker> {
+class _ProcessTrackerState extends State<ProcessTracker> {
   late int _currentIndex = 1;
   List<Map<String, String>> data = [];
 
@@ -24,7 +22,7 @@ class _OrderTrackerState extends State<OrderTracker> {
       home: Scaffold(
         appBar: AppBar(
           title: const Text(
-            "Order Tracking",
+            "Process Tracking",
             style: TextStyle(color: Colors.black),
           ),
           centerTitle: true,
@@ -32,13 +30,6 @@ class _OrderTrackerState extends State<OrderTracker> {
         ),
         body: Column(
           children: [
-            const Text(
-              "Order Code: 365jyQ",
-              style: TextStyle(
-                fontSize: 18,
-                color: Colors.black,
-              ),
-            ),
             Expanded(
               child: SingleChildScrollView(
                 child: Container(
@@ -53,42 +44,29 @@ class _OrderTrackerState extends State<OrderTracker> {
                             const EdgeInsets.only(left: 20, right: 20, top: 20),
                         child: Row(
                           children: [
-                            OrderStepComponent(
+                            SubProcessStepper(
                               onTap: () {
-                                _updateData("Placed", "Order Placed");
+                                _updateData("Process", "Wool Process");
                               },
-                              index: 1,
                               currentIndex: _currentIndex,
-                              step: "Placed",
-                              description: "Order Placed",
                             ),
                             OrderStepComponent(
                               onTap: () {
-                                _updateData("Packed", "Order Packed");
+                                _updateData("Package", "Wool Packaged");
                               },
-                              index: 2,
+                              index: 6,
                               currentIndex: _currentIndex,
-                              step: "Packed",
-                              description: "Order Packed",
+                              step: "Package",
+                              isLast: false,
                             ),
                             OrderStepComponent(
                               onTap: () {
-                                _updateData("Shipped", "Order Shipped");
-                              },
-                              index: 3,
-                              currentIndex: _currentIndex,
-                              step: "Shipped",
-                              description: "Order Shipped",
-                            ),
-                            OrderStepComponent(
-                              onTap: () {
-                                _updateData("Delivered", "Order Delivered");
+                                _updateData("Dispatched", "Wool Dispatched");
                                 _showDeliveredMessage();
                               },
-                              index: 4,
+                              index: 7,
                               currentIndex: _currentIndex,
-                              step: "Delivered",
-                              description: "Order Delivered",
+                              step: "Dispatch",
                               isLast: true,
                             ),
                           ],
@@ -149,13 +127,7 @@ class _OrderTrackerState extends State<OrderTracker> {
       builder: (BuildContext context) {
         return AlertDialog(
           title: const Text("Order Delivered"),
-          content: Column(
-            children: const [
-              Text("Your order has been delivered."),
-              SizedBox(height: 10),
-              Text("Thanks for shopping!"),
-            ],
-          ),
+          content: Text("The Wool is Delivered"),
           actions: [
             TextButton(
               onPressed: () {
@@ -175,7 +147,6 @@ class OrderStepComponent extends StatelessWidget {
   final int currentIndex;
   final int index;
   final String step;
-  final String description;
   final VoidCallback onTap;
 
   OrderStepComponent({
@@ -184,7 +155,6 @@ class OrderStepComponent extends StatelessWidget {
     required this.step,
     required this.onTap,
     required this.index,
-    required this.description,
     this.isLast = false,
   }) : super(key: key);
 
@@ -221,10 +191,6 @@ class OrderStepComponent extends StatelessWidget {
                   fontSize: 12,
                 ),
               ),
-              Text(
-                description,
-                style: const TextStyle(fontSize: 10),
-              ),
             ],
           )
         : Expanded(
@@ -239,14 +205,15 @@ class OrderStepComponent extends StatelessWidget {
                         width: 30,
                         height: 30,
                         decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(100),
-                            color: index <= currentIndex
-                                ? Colors.deepPurple
-                                : Colors.transparent,
-                            border: Border.all(
-                                color: index >= currentIndex
-                                    ? Colors.deepPurple
-                                    : const Color(0xFFe9dbFF))),
+                          borderRadius: BorderRadius.circular(100),
+                          color: index <= currentIndex
+                              ? Colors.deepPurple
+                              : Colors.transparent,
+                          border: Border.all(
+                              color: index >= currentIndex
+                                  ? Colors.deepPurple
+                                  : const Color(0xFFe9dbFF)),
+                        ),
                       ),
                     ),
                     Expanded(
@@ -262,10 +229,6 @@ class OrderStepComponent extends StatelessWidget {
                 Text(
                   step,
                   style: const TextStyle(fontSize: 12),
-                ),
-                Text(
-                  description,
-                  style: const TextStyle(fontSize: 10),
                 ),
               ],
             ),
@@ -297,5 +260,60 @@ class OrderTable extends StatelessWidget {
         ),
       ),
     );
+  }
+}
+
+class SubProcessStepper extends StatelessWidget {
+  final int currentIndex;
+  final VoidCallback onTap;
+
+  SubProcessStepper({Key? key, required this.currentIndex, required this.onTap})
+      : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        for (int i = 1; i <= 11; i++)
+          OrderStepComponent(
+            onTap: () {
+              onTap();
+            },
+            index: i,
+            currentIndex: currentIndex,
+            step: _getSubStepLabel(i),
+            isLast: i == 11,
+          ),
+      ],
+    );
+  }
+
+  String _getSubStepLabel(int subStepIndex) {
+    switch (subStepIndex) {
+      case 1:
+        return "Shearing";
+      case 2:
+        return "Grading and Sorting";
+      case 3:
+        return "Cleaning and Scour";
+      case 4:
+        return "Carbonization of Wool";
+      case 5:
+        return "Bleaching";
+      case 6:
+        return "Carding";
+      case 7:
+        return "Drafting and Doubling";
+      case 8:
+        return "Gilling";
+      case 9:
+        return "Spinning";
+      case 10:
+        return "Weaving";
+      case 11:
+        return "Finished Fabric";
+      default:
+        return "Step $subStepIndex";
+    }
   }
 }
